@@ -1,0 +1,128 @@
+.login {
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 24px 20px;
+  position: relative;
+}
+
+.login-volver {
+  position: absolute;
+  top: 18px;
+  left: 16px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--tinta-secundaria);
+  padding: 10px;
+}
+
+.login-caja {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.login-isotipo {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  background: var(--salmon);
+  color: #fff;
+  font-weight: 900;
+  font-size: 26px;
+  border-radius: 17px;
+  margin-bottom: 6px;
+  animation: latido-k 1.2s ease-out 500ms 1;
+}
+
+.login-caja h1 {
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.login-sub {
+  color: var(--tinta-suave);
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.login-error {
+  color: var(--salmon-presionado);
+  font-size: 14.5px;
+  font-weight: 600;
+}
+
+.login-aviso {
+  color: var(--verde);
+  font-size: 14.5px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.login-esperando {
+  display: flex;
+  gap: 7px;
+  padding: 14px 2px;
+}
+
+.login-punto {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--salmon);
+  animation: latido 1.2s ease-in-out infinite;
+}
+
+.login-punto:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.login-punto:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes latido {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.login-cambio {
+  margin-top: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--tinta-secundaria);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  padding: 8px;
+}
+
+.login-legal {
+  font-size: 12.5px;
+  color: var(--tinta-suave);
+  text-align: center;
+  line-height: 1.45;
+}
+
+.login-legal a {
+  color: var(--tinta-secundaria);
+  font-weight: 600;
+}
+
+.login-codigo {
+  text-align: center;
+  font-size: 28px !important;
+  font-weight: 800;
+  letter-spacing: 0.3em;
+  padding: 12px;
+}

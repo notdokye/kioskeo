@@ -1,0 +1,151 @@
+.app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-cuerpo {
+  flex: 1;
+  min-height: 0;
+}
+
+/* cambio de pestaña: fundido corto, imperceptible pero amable */
+.app-cuerpo > * {
+  animation: pestana-entra 150ms ease-out;
+}
+
+@keyframes pestana-entra {
+  from {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-cuerpo > * {
+    animation: none;
+  }
+}
+
+/* --- navegación inferior (celular) --- */
+.app-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  border-top: 1px solid var(--borde);
+  background: var(--superficie);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.app-nav button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 9px 4px 10px;
+  color: var(--tinta-suave);
+}
+
+.app-nav button span {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.app-nav button.activa {
+  color: var(--salmon-oscuro);
+}
+
+.app-nav button.activa span {
+  font-weight: 800;
+}
+
+/* --- barra lateral (escritorio): 240 px, filas con ícono y texto --- */
+.app-sidebar {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .app {
+    flex-direction: row;
+    background: var(--fondo-desk);
+  }
+
+  .app-nav {
+    display: none;
+  }
+
+  .app-sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 240px;
+    flex-shrink: 0;
+    background: var(--superficie);
+    border-right: 1px solid var(--borde);
+    padding: 20px 12px;
+  }
+
+  .app-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px 24px;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    text-align: left;
+  }
+
+  .app-k {
+    width: 28px;
+    height: 28px;
+    display: grid;
+    place-items: center;
+    background: var(--salmon);
+    color: #fff;
+    font-weight: 900;
+    font-size: 14px;
+    border-radius: 9px;
+    letter-spacing: 0;
+    transition: background 120ms;
+    /* late una vez al abrir la app */
+    animation: latido-k 1.2s ease-out 500ms 1;
+  }
+
+  .app-logo:hover .app-k {
+    background: var(--salmon-oscuro);
+    animation: latido-k 1.2s ease-out infinite;
+  }
+
+  .app-sidebar > button:not(.app-logo) {
+    height: 48px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 16px;
+    border-radius: 12px;
+    color: var(--tinta-secundaria);
+    margin-bottom: 2px;
+    flex: none;
+    transition: background 100ms, color 100ms;
+  }
+
+  .app-sidebar > button:not(.app-logo):hover {
+    background: var(--fondo-hover);
+  }
+
+  .app-sidebar > button:not(.app-logo) span {
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .app-sidebar > button.activa,
+  .app-sidebar > button.activa:hover {
+    background: var(--tinta);
+    color: #fff;
+  }
+
+  .app-sidebar svg {
+    width: 20px;
+    height: 20px;
+  }
+}

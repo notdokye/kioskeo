@@ -1,0 +1,135 @@
+/* Tipografía oficial del prototipo, autohospedada: la app es offline-first
+   y no puede depender de Google Fonts en producción. */
+@font-face {
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url("/fonts/archivo-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+2000-206F, U+20AC;
+}
+
+@font-face {
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url("/fonts/archivo-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+1E00-1E9F, U+20A0-20C0;
+}
+
+/* Tokens de diseño Kioskeo — paleta exacta del export de Claude design
+   (design/claude-design-export.html). */
+:root {
+  --fondo: #fffdfb;
+  --fondo-desk: #f6f1ec;
+  --fondo-secundario: #f4f0ec;
+  --fondo-hover: #faf4ef;
+  --superficie: #ffffff;
+  --tinta: #17181a;
+  --tinta-secundaria: #4b4f55;
+  --tinta-suave: #8a8f96;
+  --tinta-deshabilitada: #b9bdc3;
+  --salmon: #ff6b5b;
+  --salmon-oscuro: #f4573f;
+  --salmon-presionado: #d9432c;
+  --salmon-suave: #fff0ed;
+  --salmon-borde: #ffe0da;
+  --salmon-barra: #ffd3cc;
+  --verde: #128a5c;
+  --verde-suave: #e7f5ee;
+  --borde: #f1ece7;
+  --borde-input: #ede8e2;
+  --separador: #f6f1ec;
+  --radio: 16px;
+  --radio-pill: 999px;
+  --sombra-marco: 0 1px 3px rgba(23, 24, 26, 0.05);
+  --focus-ring: 0 0 0 3px #fff0ed;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-family:
+    "Archivo", "Inter", -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    sans-serif;
+  background: var(--fondo);
+  color: var(--tinta);
+  -webkit-font-smoothing: antialiased;
+  font-variant-numeric: tabular-nums;
+}
+
+button {
+  font: inherit;
+  border: none;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+input {
+  font: inherit;
+  border: none;
+  outline: none;
+  background: none;
+  color: inherit;
+}
+
+/* El latido de la K: dos pulsos cortos como un corazón. Se usa al abrir
+   la app y al pasar el mouse por el isotipo. */
+@keyframes latido-k {
+  0%,
+  60%,
+  100% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.16);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-logo,
+  .vender-logo,
+  .landing-isotipo,
+  .login-isotipo {
+    animation: none !important;
+  }
+}
+
+/* En celular, todo campo de texto con menos de 16px dispara el zoom
+   automático del navegador al tocarlo. 16px mínimo y ese zoom no existe. */
+@media (max-width: 899px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Sin zoom por doble toque en iPhone: la app se usa a toques rápidos y
+   Safari, si no, agranda la pantalla y la corre. El pellizco sigue andando. */
+html,
+body,
+button,
+a,
+input,
+label {
+  touch-action: manipulation;
+}

@@ -1,0 +1,64 @@
+@import "./Teclado.css";
+
+.pin-hoja {
+  gap: 10px;
+}
+
+.pin-puntos {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  padding: 10px 0;
+}
+
+.pin-punto {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid var(--tinta);
+  transition: background 80ms;
+}
+
+.pin-punto-on {
+  background: var(--tinta);
+}
+
+.pin-sacudir {
+  animation: pin-sacudida 400ms;
+}
+
+@keyframes pin-sacudida {
+  20% {
+    transform: translateX(-8px);
+  }
+  40% {
+    transform: translateX(8px);
+  }
+  60% {
+    transform: translateX(-5px);
+  }
+  80% {
+    transform: translateX(5px);
+  }
+}
+
+.pin-error {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--salmon-presionado);
+  min-height: 20px;
+}
+
+.pin-error-vacio {
+  visibility: hidden;
+}
+
+.pin-tecla-vacia {
+  background: none;
+  pointer-events: none;
+}
+
+.pin-teclado .teclado-tecla {
+  font-size: 24px;
+}

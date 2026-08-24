@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="531dac46-5a95-4c49-bc8b-b96f21cac495"></script>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<style>/* vietnamese */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("82ed6605-bf7f-4c85-9d54-90fd772bdaf1") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("0aee950c-affc-4371-9379-1ae23fefa745") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("8da23ccd-f1b8-49f0-b57d-8c9a9e058d9e") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("82ed6605-bf7f-4c85-9d54-90fd772bdaf1") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("0aee950c-affc-4371-9379-1ae23fefa745") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("8da23ccd-f1b8-49f0-b57d-8c9a9e058d9e") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("82ed6605-bf7f-4c85-9d54-90fd772bdaf1") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("0aee950c-affc-4371-9379-1ae23fefa745") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("8da23ccd-f1b8-49f0-b57d-8c9a9e058d9e") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 800;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("82ed6605-bf7f-4c85-9d54-90fd772bdaf1") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 800;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("0aee950c-affc-4371-9379-1ae23fefa745") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 800;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("8da23ccd-f1b8-49f0-b57d-8c9a9e058d9e") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 900;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("82ed6605-bf7f-4c85-9d54-90fd772bdaf1") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 900;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("0aee950c-affc-4371-9379-1ae23fefa745") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 900;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("8da23ccd-f1b8-49f0-b57d-8c9a9e058d9e") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style>
+html,body{margin:0;padding:0;background:#FFFDFB;color:#17181A;font-family:'Archivo',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#F4573F;text-decoration:none}
+a:hover{color:#D9432C}
+::selection{background:#FFE0DA}
+</style>
+</helmet>
+
+<!-- ─── NAV ─── -->
+<div style="max-width:1120px;margin:0 auto;padding:22px 32px;display:flex;align-items:center;justify-content:space-between">
+  <div style="display:flex;align-items:center;gap:11px">
+    <div style="width:38px;height:38px;border-radius:11px;background:var(--acc,#FF6B5B);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:22px;line-height:1">K</div>
+    <span style="font-weight:800;font-size:21px;letter-spacing:-0.5px">kioskeo</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:28px">
+    <a href="#funciones" style="color:#17181A;font-size:15px;font-weight:600" style-hover="color: var(--acc,#FF6B5B)">Funciones</a>
+    <a href="#migrar" style="color:#17181A;font-size:15px;font-weight:600" style-hover="color: var(--acc,#FF6B5B)">Migrá tu cuaderno</a>
+    <a href="#app" style="color:#17181A;font-size:15px;font-weight:600" style-hover="color: var(--acc,#FF6B5B)">La app</a>
+    <a href="#empezar" style="background:var(--acc,#FF6B5B);color:#fff;font-weight:700;font-size:15px;padding:12px 22px;border-radius:14px;display:inline-block" style-hover="background:#F4573F;color:#fff">Empezá gratis</a>
+  </div>
+</div>
+
+<!-- ─── HERO ─── -->
+<div style="max-width:1120px;margin:0 auto;padding:56px 32px 40px;display:flex;align-items:center;gap:64px">
+  <div style="flex:1.1;min-width:0">
+    <div style="display:inline-flex;align-items:center;gap:8px;background:#FFF0ED;color:#D9432C;font-size:13px;font-weight:700;padding:7px 14px;border-radius:100px;letter-spacing:0.3px">PUNTO DE VENTA PARA KIOSCOS</div>
+    <h1 style="font-size:64px;line-height:1.02;font-weight:900;letter-spacing:-2.2px;margin:22px 0 18px;text-wrap:balance">Tu kiosco,<br>sin cuaderno.</h1>
+    <p style="font-size:20px;line-height:1.45;color:#4B4F55;margin:0 0 30px;max-width:26em;text-wrap:pretty">Cobrás, fiás y cerrás la caja desde el celular. Anda sin internet y es gratis para empezar.</p>
+    <div style="display:flex;align-items:center;gap:16px">
+      <a href="#empezar" style="background:var(--acc,#FF6B5B);color:#fff;font-weight:800;font-size:18px;padding:18px 34px;border-radius:16px;display:inline-block" style-hover="background:#F4573F;color:#fff">Empezá gratis</a>
+      <a href="#app" style="color:#17181A;font-weight:700;font-size:16px;padding:18px 10px;display:inline-block">Ver cómo funciona →</a>
+    </div>
+    <div style="margin-top:26px;font-size:14px;color:#8A8F96">Sin tarjeta de crédito. Sin permanencia. Sin manual de 40 páginas.</div>
+  </div>
+  <div style="flex:0 0 auto;width:314px;height:656px;position:relative">
+    <div style="transform:scale(0.72);transform-origin:top left;width:436px">
+      <x-import component-from-global-scope="AndroidDevice" from="d9339227-a11d-454b-b4ce-d94aa326c416#/android-frame.jsx" hint-size="436px,910px">
+        <div style="height:100%;display:flex;flex-direction:column;background:#FFFDFB;font-family:'Archivo',system-ui,sans-serif">
+          <div style="display:flex;gap:10px;padding:14px 16px 10px">
+            <div style="flex:1;background:#F4F0EC;border-radius:14px;height:52px;display:flex;align-items:center;padding:0 16px;color:#8A8F96;font-size:16px">Buscar producto…</div>
+            <div style="width:52px;height:52px;border-radius:14px;background:var(--acc,#FF6B5B);display:flex;align-items:center;justify-content:center">
+              <svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none"><path d="M3 5v14M7 5v14M10 5v14M14 5v14M17 5v14M21 5v14" stroke="#fff" stroke-width="2" stroke-linecap="round"></path></svg>
+            </div>
+          </div>
+          <div style="flex:1;padding:4px 16px;display:flex;flex-direction:column">
+            <div style="display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid #F1ECE7">
+              <div style="min-width:34px;height:30px;border-radius:9px;background:#FFF0ED;color:#D9432C;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center">×2</div>
+              <div style="flex:1;font-size:16px;font-weight:600">Coca-Cola 500ml</div>
+              <div style="font-size:19px;font-weight:800;font-variant-numeric:tabular-nums">$ 3.600</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid #F1ECE7">
+              <div style="min-width:34px;height:30px;border-radius:9px;background:#FFF0ED;color:#D9432C;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center">×3</div>
+              <div style="flex:1;font-size:16px;font-weight:600">Alfajor Guaymallén</div>
+              <div style="font-size:19px;font-weight:800;font-variant-numeric:tabular-nums">$ 1.800</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid #F1ECE7">
+              <div style="min-width:34px;height:30px;border-radius:9px;background:#FFF0ED;color:#D9432C;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center">×1</div>
+              <div style="flex:1;font-size:16px;font-weight:600">Marlboro Box 20</div>
+              <div style="font-size:19px;font-weight:800;font-variant-numeric:tabular-nums">$ 4.900</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:13px 0">
+              <div style="min-width:34px;height:30px;border-radius:9px;background:#FFF0ED;color:#D9432C;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center">×1</div>
+              <div style="flex:1;font-size:16px;font-weight:600">Beldent Menta</div>
+              <div style="font-size:19px;font-weight:800;font-variant-numeric:tabular-nums">$ 800</div>
+            </div>
+          </div>
+          <div style="padding:0 16px 16px">
+            <div style="display:flex;align-items:baseline;justify-content:space-between;padding:10px 4px 14px">
+              <span style="font-size:14px;font-weight:700;letter-spacing:1.5px;color:#8A8F96">TOTAL</span>
+              <span style="font-size:52px;font-weight:900;letter-spacing:-1.5px;font-variant-numeric:tabular-nums">$ 11.100</span>
+            </div>
+            <div style="height:70px;border-radius:18px;background:var(--acc,#FF6B5B);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:23px;letter-spacing:2px">COBRAR</div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 3 DATOS ─── -->
+<div style="max-width:1120px;margin:0 auto;padding:24px 32px 8px">
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;border-top:1px solid #F1ECE7;border-bottom:1px solid #F1ECE7;padding:36px 0">
+    <div style="text-align:center">
+      <svg width="40" height="40" sc-camel-view-box="0 0 40 40" fill="none" stroke="var(--acc,#FF6B5B)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:block;margin:0 auto 12px"><path d="M6.5 16.5a19 19 0 0 1 27 0"></path><path d="M12 22a12 12 0 0 1 16 0"></path><path d="M16.6 27.2a5.5 5.5 0 0 1 6.8 0"></path><circle cx="20" cy="32" r="1.4" fill="var(--acc,#FF6B5B)" stroke="none"></circle><path d="M8.5 33.5 32 8"></path></svg>
+      <div style="font-size:40px;font-weight:900;letter-spacing:-1px;color:var(--acc,#FF6B5B)">Sin internet</div>
+      <div style="font-size:15px;color:#4B4F55;margin-top:6px">funciona igual, con o sin señal</div>
+    </div>
+    <div style="text-align:center;border-left:1px solid #F1ECE7;border-right:1px solid #F1ECE7">
+      <svg width="40" height="40" sc-camel-view-box="0 0 40 40" fill="none" stroke="var(--acc,#FF6B5B)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:block;margin:0 auto 12px"><circle cx="20" cy="20" r="14.5"></circle><path d="M20 11.2v17.6"></path><path d="M24.4 16.2c0-1.9-2-3-4.4-3s-4.4 1.1-4.4 3 1.6 2.7 4.4 3.3 4.4 1.4 4.4 3.4-2 3.3-4.4 3.3-4.4-1.3-4.4-3.3"></path></svg>
+      <div style="font-size:40px;font-weight:900;letter-spacing:-1px;color:var(--acc,#FF6B5B);font-variant-numeric:tabular-nums">$ 0</div>
+      <div style="font-size:15px;color:#4B4F55;margin-top:6px">gratis para empezar, sin tarjeta</div>
+    </div>
+    <div style="text-align:center">
+      <svg width="40" height="40" sc-camel-view-box="0 0 40 40" fill="none" stroke="var(--acc,#FF6B5B)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:block;margin:0 auto 12px"><path d="M11.5 14a8.5 8.5 0 0 1 17 0"></path><path d="M17 13.5a2.5 2.5 0 0 1 5 0V22.5a1.9 1.9 0 0 1 3.8 0v1.1a1.9 1.9 0 0 1 3.8 0v1.1a1.9 1.9 0 0 1 3.8 0v5.8a6.5 6.5 0 0 1-6.5 6.5h-7.1a5 5 0 0 1-4.1-2.1l-4.4-6.3a2.5 2.5 0 0 1 3.9-3.1L17 28.6z"></path></svg>
+      <div style="font-size:40px;font-weight:900;letter-spacing:-1px;color:var(--acc,#FF6B5B);font-variant-numeric:tabular-nums">2 toques</div>
+      <div style="font-size:15px;color:#4B4F55;margin-top:6px">para cobrar una venta</div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── FUNCIONES ─── -->
+<div id="funciones" style="max-width:1120px;margin:0 auto;padding:72px 32px 32px">
+  <h2 style="font-size:42px;font-weight:900;letter-spacing:-1.5px;margin:0 0 10px;text-wrap:balance">Hace lo que hacías con el cuaderno.<br>Pero solo.</h2>
+  <p style="font-size:18px;color:#4B4F55;margin:0 0 40px">Cinco cosas que vas a usar todos los días.</p>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+    <div style="position:relative">
+      <div data-fn-card="" sc-camel-on-mouse-enter="{{ c1.enter }}" sc-camel-on-mouse-leave="{{ c1.leave }}" sc-camel-on-click="{{ c1.toggle }}" style="{{ c1.cardStyle }}">
+        <div style="{{ c1.waveStyle }}">
+          <svg sc-camel-view-box="0 0 60 420" sc-camel-preserve-aspect-ratio="none" style="position:absolute;left:calc(100% + 2px);top:0;height:100%;width:60px"><path d="M3 0C31 64-9 138 17 210c22 62-10 136-14 210H0V0z" fill="#FFF0ED"></path><path d="M3 0C31 64-9 138 17 210c22 62-10 136-14 210" fill="none" stroke="var(--acc,#FF6B5B)" stroke-width="4"></path></svg>
+        </div>
+        <div style="position:relative;padding:28px;height:100%;box-sizing:border-box"><div style="width:48px;height:48px;border-radius:14px;background:#FFF0ED;display:flex;align-items:center;justify-content:center;margin-bottom:18px">
+        <svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="13" rx="3" stroke="#F4573F" stroke-width="2"></rect><circle cx="12" cy="12.5" r="3.5" stroke="#F4573F" stroke-width="2"></circle><path d="M8 6l1.2-2h5.6L16 6" stroke="#F4573F" stroke-width="2" stroke-linecap="round"></path></svg>
+      </div><h3 style="font-size:20px;font-weight:800;margin:0 0 8px;letter-spacing:-0.4px">La cámara es tu lector</h3><div style="{{ c1.teaserStyle }}"><div style="overflow:hidden;min-height:0"><p style="font-size:15px;line-height:1.5;color:#4B4F55;margin:0;text-wrap:pretty">Escaneás el código de barras con el celu y listo. Sin pistola, sin aparatos, sin cables.</p></div></div><div style="{{ c1.expStyle }}"><div style="overflow:hidden;min-height:0;display:flex;flex-direction:column;gap:16px;padding-top:16px"><p style="font-size:15px;line-height:1.5;color:#4B4F55;margin:0;text-wrap:pretty">Escaneás el código de barras con el celu y listo. Funciona con envases arrugados, con poca luz y con el mostrador lleno.</p><div style="display:flex;align-items:center;gap:16px"><div style="width:54px;height:96px;border-radius:12px;background:#17181A;padding:7px;display:flex;box-sizing:border-box"><div style="flex:1;border-radius:7px;border:1.5px solid var(--acc,#FF6B5B);display:flex;align-items:center;justify-content:center;gap:2px"><div style="width:2px;height:22px;background:#FFF0ED"></div><div style="width:4px;height:22px;background:#FFF0ED"></div><div style="width:2px;height:22px;background:#FFF0ED"></div><div style="width:5px;height:22px;background:#FFF0ED"></div></div></div><svg width="30" height="20" sc-camel-view-box="0 0 30 20" fill="none" stroke="var(--acc,#FF6B5B)" stroke-width="2" stroke-linecap="round"><path d="M2 10h22"></path><path d="M18 4l6 6-6 6"></path></svg><div style="background:#fff;border:1px solid #FFE0DA;border-radius:12px;padding:10px 13px"><div style="font-size:12px;color:#8A8F96">Código leído</div><div style="font-size:18px;font-weight:900;font-variant-numeric:tabular-nums">7790895 000201</div></div></div></div></div></div>
+        <sc-if value="{{ c1.isOpen }}" hint-placeholder-val="{{ false }}">
+          <div sc-camel-on-click="{{ c1.close }}" style="position:absolute;top:20px;right:20px;width:28px;height:28px;border-radius:100px;background:#fff;border:1px solid #FFE0DA;display:flex;align-items:center;justify-content:center"><svg width="11" height="11" sc-camel-view-box="0 0 12 12" stroke="#D9432C" stroke-width="2" stroke-linecap="round"><path d="M2 2l8 8M10 2l-8 8"></path></svg></div>
+        </sc-if>
+      </div>
+    </div>
+    <div style="position:relative">
+      <div data-fn-card="" sc-camel-on-mouse-enter="{{ c2.enter }}" sc-camel-on-mouse-leave="{{ c2.leave }}" sc-camel-on-click="{{ c2.toggle }}" style="{{ c2.cardStyle }}">
+        <div style="{{ c2.waveStyle }}">
+          <svg sc-camel-view-box="0 0 60 420" sc-camel-preserve-aspect-ratio="none" style="position:absolute;left:calc(100% + 2px);top:0;height:100%;width:60px"><path d="M3 0C31 64-9 138 17 210c22 62-10 136-14 210H0V0z" fill="#FFF0ED"></path><path d="M3 0C31 64-9 138 17 210c22 62-10 136-14 210" fill="none" stroke="var(--acc,#FF6B5B)" stroke-width="4"></path></svg>
+        </div>
+        <div style="position:relative;padding:28px;height:100%;box-sizing:border-box"><div style="width:48px;height:48px;border-radius:14px;background:#FFF0ED;display:flex;align-items:center;justify-content:center;margin-bottom:18px">
+        <svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none"><path d="M4 17l5-5 4 4 7-8" stroke="#F4573F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M20 8v5M20 8h-5" stroke="#F4573F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </div><h3 style="font-size:20px;font-weight:800;margin:0 0 8px;letter-spacing:-0.4px">Aumentos en un toque</h3><div style="{{ c2.teaserStyle }}"><div style="overflow:hidden;min-height:0"><p style="font-size:15px;line-height:1.5;color:#4B4F55;margin:0;text-wrap:pretty">¿Subieron los cigarrillos? Aumentá todo el rubro de una: +8% y quedó. Sin remarcar uno por uno.</p></div></div><div style="{{ c2.expStyle }}"><div style="overflow:hidden;min-height:0;display:flex;flex-direction:column;gap:16px;padding-top:16px"><p style="font-size:15px;line-height:1.5;color:#4B4F55;margin:0;text-wrap:pretty">Elegís el porcentaje y se aplica a todo el rubro o a un proveedor entero, con el redondeo que usás en el mostrador.</p><div style="display:flex;flex-direction:column;gap:8px"><div style="display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #FFE0DA;border-radius:11px;padding:9px 12px"><div style="flex:1;font-size:14px;font-weight:600">Cigarrillos</div><div style="font-size:13px;color:#8A8F96;text-decoration:line-through;font-variant-numeric:tabular-nums">$ 4.900</div><div style="font-size:15px;font-weight:900;font-variant-numeric:tabular-nums">$ 5.300</div></div><div style="display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #FFE0DA;border-radius:11px;padding:9px 12px"><div style="flex:1;font-size:14px;font-weight:600">Bebidas</div><div style="font-size:13px;color:#8A8F96;text-decoration:line-through;font-variant-numeric:tabular-nums">$ 1.650</div><div style="font-size:15px;font-weight:900;font-variant-numeric:tabular-nums">$ 1.790</div></div><div style="align-self:flex-end;background:var(--acc,#FF6B5B);color:#fff;font-size:13px;font-weight:800;border-radius:100px;padding:6px 14px">+8% aplicado</div></div></div></div></div>
+        <sc-if value="{{ c2.isOpen }}" hint-placeholder-val="{{ false }}">
+          <div sc-camel-on-click="{{ c2.close }}" style="position:absolute;top:20px;right:20px;width:28px;height:28px;border-radius:100px;background:#fff;border:1px solid #FFE0DA;display:flex;align-items:center;justify-content:center"><svg width="11" height="11" sc-camel-view-box="0 0 12 12" stroke="#D9432C" stroke-width="2" stroke-linecap="round"><path d="M2 2l8 8M10 2l-8 8"></path></svg></div>
+        </sc-if>
+      </div>
+    </div>
+    <div style="position:relative">
+      <div data-fn-card="" sc-camel-on-mouse-enter="{{ c3.enter }}" sc-camel-on-mouse-leave="{{ c3.leave }}" sc-camel-on-click="{{ c3.toggle }}" style="{{ c3.cardStyle }}">
+        <div style="{{ c3.waveStyle }}">
+          <svg sc-camel-view-box="0 0 60 420" sc-camel-preserve-aspect-ratio="none" style="position:absolute;left:calc(100% + 2px);top:0;height:100%;width:60px"><path d="M3 0C31 64-9 138 17 210c22 62-10 136-14 210H0V0z" fill="#FFF0ED"></path><path d="M3 0C31 64-9 138 17 210c22 62-10 136-14 210" fill="none" stroke="var(--acc,#FF6B5B)" stroke-width="4"></path></svg>
+        </div>
+        <div style="position:relative;padding:28px;height:100%;box-sizing:border-box"><div style="width:48px;height:48px;border-radius:14px;background:#FFF0ED;display:flex;align-items:center;justify-content:center;margin-bottom:18px">
+        <svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none"><path d="M6 3h12a1 1 0 011 1v16a1 1 0 01-1 1H6a1 1 0 01-1-1V4a1 1 0 011-1z" stroke="#F4573F" stroke-width="2"></path><path d="M9 8h6M9 12h6" stroke="#F4573F" stroke-width="2" stroke-linecap="round"></path><path d="M4 19L20 5" stroke="#F4573F" stroke-width="2" stroke-linecap="round"></path></svg>
+      </div><h3 style="font-size:20px;font-weight:800;margin:0 0 8px;letter-spacing:-0.4px">Fiados sin cuaderno</h3><div style="{{ c3.teaserStyle }}"><div style="overflow:hidden;min-height:0"><p style="font-size:15px;line-height:1.5;color:#4B4F55;margin:0;text-wrap:pretty">Cada fiado queda a nombre del cliente. Sabés cuánto te deben sin buscar la hoja.</p></div></div><div style="{{ c3.expStyle }}"><div style="overflow:hidden;min-height:0;display:flex;flex-direction:column;gap:16px;padding-top:16px"><p style="font-size:15px;line-height:1.5;color:#4B4F55;margin:0;text-wrap:pretty">Anotás el fiado dentro de la misma venta y queda en la cuenta del cliente. Ves quién debe, cuánto y desde cuándo.</p><div style="display:flex;flex-direction:column;gap:8px"><div style="display:flex;align-items:center;gap:11px;background:#fff;border:1px solid #FFE0DA;border-radius:11px;padding:9px 12px"><div style="width:28px;height:28px;border-radius:100px;background:var(--acc,#FF6B5B);color:#fff;font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center">R</div><div style="flex:1"><div style="font-size:14px;font-weight:700">Rubén</div><div style="font-size:12px;color:#8A8F96">hace 3 días</div></div><div style="font-size:15px;font-weight:900;font-variant-numeric:tabular-nums">$ 2.400</div></div><div style="display:flex;align-items:center;gap:11px;background:#fff;border:1px solid #FFE0DA;border-radius:11px;padding:9px 12px"><div style="width:28px;height:28px;border-radius:100px;background:#17181A;color:#fff;font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center">M</div><div style="flex:1"><div style="font-size:14px;font-weight:700">Marta</div><div style="font-size:12px;color:#8A8F96">ayer</div></div><div style="font-size:15px;font-weight:900;font-variant-numeric:tabular-nums">$ 780</div></div></div></div></div></div>
+        <sc-if value="{{ c3.isOpen }}" hint-placeholder-val="{{ false }}">
+          <div sc-camel-on-click="{{ c3.close }}" style="position:absolute;top:20px;right:20px;width:28px;height:28px;border-radius:100px;background:#fff;border:1px solid #FFE0DA;display:flex;align-items:center;justify-content:center"><svg width="11" height="11" sc-camel-view-box="0 0 12 12" stroke="#D9432C" stroke-width="2" stroke-linecap="round"><path d="M2 2l8 8M10 2l-8 8"></path></svg></div>
+        </sc-if>
+      </div>
+    </div>
+    <div style="position:relative">
+      <div data-fn-card="" sc-camel-on-mouse-enter="{{ c4.enter }}" sc-camel-on-mouse-leave="{{ c4.leave }}" sc-camel-on-click="{{ c4.toggle }}" style="{{ c4.cardStyle }}">
+        <div style="{{ c4.waveStyle }}">
+          <svg sc-camel-view-box="0 0 60 420" sc-camel-preserve-aspect-ratio="none" style="position:absolute;left:calc(100% + 2px);top:0;height:100%;width:60px"><path d="M3 0C31 64-9 138 17 210c22 62-10 136-14 210H0V0z" fill="#FFF0ED"></path><path d="M3 0C31 64-9 138 17 210c22 62-10 136-14 210" fill="none" stroke="var(--acc,#FF6B5B)" stroke-width="4"></path></svg>
+        </div>
+        <div style="position:relative;padding:28px;height:100%;box-sizing:border-box"><div style="width:48px;height:48px;border-radius:14px;background:#FFF0ED;display:flex;align-items:center;justify-content:center;margin-bottom:18px">
+        <svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none"><rect x="3" y="8" width="18" height="12" rx="3" stroke="#F4573F" stroke-width="2"></rect><path d="M7 8V6a2 2 0 012-2h6a2 2 0 012 2v2" stroke="#F4573F" stroke-width="2"></path><path d="M12 12v4" stroke="#F4573F" stroke-width="2" stroke-linecap="round"></path></svg>
+      </div><h3 style="font-size:20px;font-weight:800;margin:0 0 8px;letter-spacing:-0.4px">Cierre de caja por turno</h3><div style="{{ c4.teaserStyle }}"><div style="overflow:hidden;min-height:0"><p style="font-size:15px;line-height:1.5;color:#4B4F55;margin:0;text-wrap:pretty">Abrís y cerrás caja en cada turno. Si falta plata, lo ves al toque y sabés en qué turno fue.</p></div></div><div style="{{ c4.expStyle }}"><div style="overflow:hidden;min-height:0;display:flex;flex-direction:column;gap:16px;padding-top:16px"><p style="font-size:15px;line-height:1.5;color:#4B4F55;margin:0;text-wrap:pretty">Cada empleado abre y cierra su turno: efectivo contado, diferencia y ventas quedan registradas con nombre y hora.</p><div style="background:#fff;border:1px solid #FFE0DA;border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:7px"><div style="display:flex;justify-content:space-between;font-size:12px;color:#8A8F96"><span>Turno tarde · Belén</span><span>14 → 22 h</span></div><div style="display:flex;justify-content:space-between;font-size:14px;color:#4B4F55"><span>Efectivo</span><span style="font-variant-numeric:tabular-nums">$ 118.400</span></div><div style="display:flex;justify-content:space-between;font-size:14px;color:#4B4F55"><span>Débito</span><span style="font-variant-numeric:tabular-nums">$ 46.900</span></div><div style="height:1px;background:#FFE0DA"></div><div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-size:14px;font-weight:700">Diferencia</span><span style="font-size:16px;font-weight:900;color:#D9432C;font-variant-numeric:tabular-nums">$ 0</span></div></div></div></div></div>
+        <sc-if value="{{ c4.isOpen }}" hint-placeholder-val="{{ false }}">
+          <div sc-camel-on-click="{{ c4.close }}" style="position:absolute;top:20px;right:20px;width:28px;height:28px;border-radius:100px;background:#fff;border:1px solid #FFE0DA;display:flex;align-items:center;justify-content:center"><svg width="11" height="11" sc-camel-view-box="0 0 12 12" stroke="#D9432C" stroke-width="2" stroke-linecap="round"><path d="M2 2l8 8M10 2l-8 8"></path></svg></div>
+        </sc-if>
+      </div>
+    </div>
+    <div style="position:relative">
+      <div data-fn-card="" sc-camel-on-mouse-enter="{{ c5.enter }}" sc-camel-on-mouse-leave="{{ c5.leave }}" sc-camel-on-click="{{ c5.toggle }}" style="{{ c5.cardStyle }}">
+        <div style="{{ c5.waveStyle }}">
+          <svg sc-camel-view-box="0 0 60 420" sc-camel-preserve-aspect-ratio="none" style="position:absolute;left:calc(100% + 2px);top:0;height:100%;width:60px"><path d="M3 0C31 64-9 138 17 210c22 62-10 136-14 210H0V0z" fill="#FFF0ED"></path><path d="M3 0C31 64-9 138 17 210c22 62-10 136-14 210" fill="none" stroke="var(--acc,#FF6B5B)" stroke-width="4"></path></svg>
+        </div>
+        <div style="position:relative;padding:28px;height:100%;box-sizing:border-box"><div style="width:48px;height:48px;border-radius:14px;background:#FFF0ED;display:flex;align-items:center;justify-content:center;margin-bottom:18px">
+        <svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none"><path d="M3 11l9-7 9 7" stroke="#F4573F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M5 10v9h14v-9" stroke="#F4573F" stroke-width="2" stroke-linejoin="round"></path><path d="M9 16l2-2 2 1.5 3-3" stroke="#F4573F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </div><h3 style="font-size:20px;font-weight:800;margin:0 0 8px;letter-spacing:-0.4px">Tu kiosco, desde el sillón</h3><div style="{{ c5.teaserStyle }}"><div style="overflow:hidden;min-height:0"><p style="font-size:15px;line-height:1.5;color:#4B4F55;margin:0;text-wrap:pretty">Mirá cuánto vendiste hoy desde tu casa, en tiempo real. Aunque atienda otro.</p></div></div><div style="{{ c5.expStyle }}"><div style="overflow:hidden;min-height:0;display:flex;flex-direction:column;gap:16px;padding-top:16px"><p style="font-size:15px;line-height:1.5;color:#4B4F55;margin:0;text-wrap:pretty">Ventas del día, caja abierta y stock crítico en vivo desde tu celular. No hace falta llamar para preguntar cómo viene la tarde.</p><div style="background:#fff;border:1px solid #FFE0DA;border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:8px"><div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-size:12px;color:#8A8F96">Hoy hasta las 18:40</span><span style="font-size:18px;font-weight:900;font-variant-numeric:tabular-nums">$ 184.300</span></div><svg sc-camel-view-box="0 0 240 44" sc-camel-preserve-aspect-ratio="none" style="width:100%;height:38px"><path d="M2 38C28 34 44 20 66 24s34 11 56 4 40-21 62-15 42 5 52 2" fill="none" stroke="var(--acc,#FF6B5B)" stroke-width="3" stroke-linecap="round"></path></svg><div style="display:flex;gap:8px"><div style="background:#FFF0ED;border:1px solid #FFE0DA;border-radius:100px;padding:5px 11px;font-size:12px;font-weight:700;color:#D9432C">Caja abierta</div><div style="background:#FFF0ED;border:1px solid #FFE0DA;border-radius:100px;padding:5px 11px;font-size:12px;font-weight:700;color:#D9432C">3 con stock bajo</div></div></div></div></div></div>
+        <sc-if value="{{ c5.isOpen }}" hint-placeholder-val="{{ false }}">
+          <div sc-camel-on-click="{{ c5.close }}" style="position:absolute;top:20px;right:20px;width:28px;height:28px;border-radius:100px;background:#fff;border:1px solid #FFE0DA;display:flex;align-items:center;justify-content:center"><svg width="11" height="11" sc-camel-view-box="0 0 12 12" stroke="#D9432C" stroke-width="2" stroke-linecap="round"><path d="M2 2l8 8M10 2l-8 8"></path></svg></div>
+        </sc-if>
+      </div>
+    </div>
+    <div style="background:#FFF0ED;border:1px solid #FFE0DA;border-radius:22px;padding:28px;display:flex;flex-direction:column;justify-content:center">
+      <h3 style="font-size:20px;font-weight:800;margin:0 0 8px;letter-spacing:-0.4px;color:#D9432C">¿Y si me quedo sin señal?</h3>
+      <p style="font-size:15px;line-height:1.5;color:#4B4F55;margin:0;text-wrap:pretty">Seguís vendiendo igual. Kioskeo guarda todo en el celular y sincroniza cuando vuelve internet.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ─── APP ─── -->
+<div id="app" style="background:#FAF4EF;margin-top:48px">
+  <div style="max-width:1120px;margin:0 auto;padding:72px 32px">
+    <h2 style="font-size:42px;font-weight:900;letter-spacing:-1.5px;margin:0 0 10px">La app, por dentro</h2>
+    <p style="font-size:18px;color:#4B4F55;margin:0 0 48px">Una acción principal por pantalla. Nada que explicar.</p>
+    <div style="display:flex;gap:64px;justify-content:center;flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:20px;align-items:center">
+        <x-import component-from-global-scope="AndroidDevice" from="d9339227-a11d-454b-b4ce-d94aa326c416#/android-frame.jsx" hint-size="436px,910px">
+          <div style="height:100%;display:flex;flex-direction:column;background:#FFFDFB;font-family:'Archivo',system-ui,sans-serif">
+            <div style="display:flex;gap:10px;padding:14px 16px 10px">
+              <div style="flex:1;background:#F4F0EC;border-radius:14px;height:52px;display:flex;align-items:center;padding:0 16px;color:#8A8F96;font-size:16px">Buscar producto…</div>
+              <div style="width:52px;height:52px;border-radius:14px;background:var(--acc,#FF6B5B);display:flex;align-items:center;justify-content:center">
+                <svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none"><path d="M3 5v14M7 5v14M10 5v14M14 5v14M17 5v14M21 5v14" stroke="#fff" stroke-width="2" stroke-linecap="round"></path></svg>
+              </div>
+            </div>
+            <div style="flex:1;padding:4px 16px;display:flex;flex-direction:column">
+              <div style="display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid #F1ECE7">
+                <div style="min-width:34px;height:30px;border-radius:9px;background:#FFF0ED;color:#D9432C;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center">×2</div>
+                <div style="flex:1;font-size:16px;font-weight:600">Coca-Cola 500ml</div>
+                <div style="font-size:19px;font-weight:800;font-variant-numeric:tabular-nums">$ 3.600</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid #F1ECE7">
+                <div style="min-width:34px;height:30px;border-radius:9px;background:#FFF0ED;color:#D9432C;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center">×3</div>
+                <div style="flex:1;font-size:16px;font-weight:600">Alfajor Guaymallén</div>
+                <div style="font-size:19px;font-weight:800;font-variant-numeric:tabular-nums">$ 1.800</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid #F1ECE7">
+                <div style="min-width:34px;height:30px;border-radius:9px;background:#FFF0ED;color:#D9432C;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center">×1</div>
+                <div style="flex:1;font-size:16px;font-weight:600">Marlboro Box 20</div>
+                <div style="font-size:19px;font-weight:800;font-variant-numeric:tabular-nums">$ 4.900</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:12px;padding:13px 0">
+                <div style="min-width:34px;height:30px;border-radius:9px;background:#FFF0ED;color:#D9432C;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center">×1</div>
+                <div style="flex:1;font-size:16px;font-weight:600">Beldent Menta</div>
+                <div style="font-size:19px;font-weight:800;font-variant-numeric:tabular-nums">$ 800</div>
+              </div>
+            </div>
+            <div style="padding:0 16px 16px">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;padding:10px 4px 14px">
+                <span style="font-size:14px;font-weight:700;letter-spacing:1.5px;color:#8A8F96">TOTAL</span>
+                <span style="font-size:52px;font-weight:900;letter-spacing:-1.5px;font-variant-numeric:tabular-nums">$ 11.100</span>
+              </div>
+              <div style="height:70px;border-radius:18px;background:var(--acc,#FF6B5B);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:23px;letter-spacing:2px">COBRAR</div>
+            </div>
+          </div>
+        </x-import>
+        <div style="text-align:center;max-width:340px">
+          <div style="font-weight:800;font-size:17px">A · Vender</div>
+          <div style="font-size:14px;color:#4B4F55;margin-top:4px">Total gigante, un solo botón. Pensada para la cola de las 8 de la mañana.</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:20px;align-items:center">
+        <x-import component-from-global-scope="AndroidDevice" from="d9339227-a11d-454b-b4ce-d94aa326c416#/android-frame.jsx" hint-size="436px,910px">
+          <div style="height:100%;display:flex;flex-direction:column;background:#FFFDFB;font-family:'Archivo',system-ui,sans-serif;padding:14px 16px 16px;box-sizing:border-box;gap:14px">
+            <div>
+              <div style="font-size:14px;color:#8A8F96;font-weight:600">Hoy · martes 18 de agosto</div>
+              <div style="font-size:16px;font-weight:700;margin-top:14px;color:#4B4F55">Vendiste</div>
+              <div style="font-size:58px;font-weight:900;letter-spacing:-2px;font-variant-numeric:tabular-nums;line-height:1.05">$ 184.300</div>
+              <div style="display:inline-flex;align-items:center;gap:6px;background:#E7F5EE;color:#128A5C;font-weight:700;font-size:14px;padding:6px 12px;border-radius:100px;margin-top:10px">▲ 12% más que ayer</div>
+            </div>
+            <div style="background:#fff;border:1px solid #F1ECE7;border-radius:18px;padding:18px">
+              <div style="font-size:13px;font-weight:700;letter-spacing:1px;color:#8A8F96;margin-bottom:14px">VENTAS POR TURNO</div>
+              <div style="display:flex;flex-direction:column;gap:12px">
+                <div style="display:flex;align-items:center;gap:12px">
+                  <span style="width:64px;font-size:14px;font-weight:600;color:#4B4F55">Mañana</span>
+                  <div style="flex:1;height:12px;border-radius:6px;background:#F4F0EC"><div style="width:70%;height:12px;border-radius:6px;background:var(--acc,#FF6B5B)"></div></div>
+                  <span style="width:74px;text-align:right;font-size:15px;font-weight:800;font-variant-numeric:tabular-nums">$ 62.400</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:12px">
+                  <span style="width:64px;font-size:14px;font-weight:600;color:#4B4F55">Tarde</span>
+                  <div style="flex:1;height:12px;border-radius:6px;background:#F4F0EC"><div style="width:100%;height:12px;border-radius:6px;background:var(--acc,#FF6B5B)"></div></div>
+                  <span style="width:74px;text-align:right;font-size:15px;font-weight:800;font-variant-numeric:tabular-nums">$ 89.100</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:12px">
+                  <span style="width:64px;font-size:14px;font-weight:600;color:#4B4F55">Noche</span>
+                  <div style="flex:1;height:12px;border-radius:6px;background:#F4F0EC"><div style="width:37%;height:12px;border-radius:6px;background:var(--acc,#FF6B5B)"></div></div>
+                  <span style="width:74px;text-align:right;font-size:15px;font-weight:800;font-variant-numeric:tabular-nums">$ 32.800</span>
+                </div>
+              </div>
+            </div>
+            <div style="background:#fff;border:1px solid #F1ECE7;border-radius:18px;padding:18px;display:flex;align-items:center;gap:14px">
+              <div style="width:42px;height:42px;border-radius:12px;background:#E7F5EE;display:flex;align-items:center;justify-content:center">
+                <svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#128A5C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              </div>
+              <div style="flex:1">
+                <div style="font-size:16px;font-weight:800">Caja del turno mañana: cerró bien</div>
+                <div style="font-size:14px;color:#4B4F55;font-variant-numeric:tabular-nums">$ 62.400 contados · sin diferencia</div>
+              </div>
+            </div>
+            <div style="background:#fff;border:1px solid #F1ECE7;border-radius:18px;padding:18px;display:flex;align-items:center;gap:14px">
+              <div style="width:42px;height:42px;border-radius:12px;background:#FFF0ED;display:flex;align-items:center;justify-content:center">
+                <svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3.2" stroke="#F4573F" stroke-width="2"></circle><path d="M3.5 19c.8-3 3-4.5 5.5-4.5s4.7 1.5 5.5 4.5" stroke="#F4573F" stroke-width="2" stroke-linecap="round"></path><path d="M16.5 8.5h4M18.5 6.5v4" stroke="#F4573F" stroke-width="2" stroke-linecap="round"></path></svg>
+              </div>
+              <div style="flex:1">
+                <div style="font-size:16px;font-weight:800;font-variant-numeric:tabular-nums">Fiados: $ 23.450</div>
+                <div style="font-size:14px;color:#4B4F55">7 clientes te deben</div>
+              </div>
+              <span style="color:#8A8F96;font-size:22px">›</span>
+            </div>
+            <div style="flex:1"></div>
+            <div style="display:flex;border-top:1px solid #F1ECE7;padding-top:10px">
+              <div style="flex:1;text-align:center;color:#8A8F96;font-size:13px;font-weight:700">Vender</div>
+              <div style="flex:1;text-align:center;color:var(--acc,#FF6B5B);font-size:13px;font-weight:800">Panel</div>
+              <div style="flex:1;text-align:center;color:#8A8F96;font-size:13px;font-weight:700">Fiados</div>
+            </div>
+          </div>
+        </x-import>
+        <div style="text-align:center;max-width:340px">
+          <div style="font-weight:800;font-size:17px">B · Panel del dueño</div>
+          <div style="font-size:14px;color:#4B4F55;margin-top:4px">"¿Cuánto vendí hoy?" respondido en 2 segundos, desde donde estés.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── MIGRACIÓN ─── -->
+<div id="migrar" style="max-width:1120px;margin:0 auto;padding:80px 32px 40px">
+  <h2 style="font-size:42px;font-weight:900;letter-spacing:-1.5px;margin:0 0 10px;text-wrap:balance">Del cuaderno a Kioskeo<br>en 15 minutos</h2>
+  <p style="font-size:18px;color:#4B4F55;margin:0 0 44px">Tenés los precios en un Excel, en el cuaderno o en la cabeza. Cualquiera sirve.</p>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+    <div style="border:1px solid #F1ECE7;border-radius:22px;padding:28px;background:#fff">
+      <div style="font-size:44px;font-weight:900;color:var(--acc,#FF6B5B);font-variant-numeric:tabular-nums;line-height:1">1</div>
+      <h3 style="font-size:19px;font-weight:800;margin:16px 0 8px">Pasanos tu lista</h3>
+      <p style="font-size:15px;line-height:1.5;color:#4B4F55;margin:0;text-wrap:pretty">Un Excel, una foto del cuaderno o lo que tengas. Lo mandás por WhatsApp y listo.</p>
+    </div>
+    <div style="border:1px solid #F1ECE7;border-radius:22px;padding:28px;background:#fff">
+      <div style="font-size:44px;font-weight:900;color:var(--acc,#FF6B5B);font-variant-numeric:tabular-nums;line-height:1">2</div>
+      <h3 style="font-size:19px;font-weight:800;margin:16px 0 8px">Kioskeo carga todo solo</h3>
+      <p style="font-size:15px;line-height:1.5;color:#4B4F55;margin:0;text-wrap:pretty">Productos, precios y rubros quedan armados. Vos solo revisás que esté bien.</p>
+    </div>
+    <div style="border:1px solid #F1ECE7;border-radius:22px;padding:28px;background:#fff">
+      <div style="font-size:44px;font-weight:900;color:var(--acc,#FF6B5B);font-variant-numeric:tabular-nums;line-height:1">3</div>
+      <h3 style="font-size:19px;font-weight:800;margin:16px 0 8px">Empezás a cobrar</h3>
+      <p style="font-size:15px;line-height:1.5;color:#4B4F55;margin:0;text-wrap:pretty">Primera venta el mismo día. El cuaderno queda de recuerdo en el cajón.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ─── CTA FINAL ─── -->
+<div id="empezar" style="max-width:1120px;margin:0 auto;padding:56px 32px 88px">
+  <div style="background:#17181A;border-radius:28px;padding:72px 40px;text-align:center">
+    <h2 style="font-size:46px;font-weight:900;letter-spacing:-1.5px;color:#fff;margin:0 0 14px;text-wrap:balance">Dejá el cuaderno hoy.</h2>
+    <p style="font-size:18px;color:#B9BDC3;margin:0 0 34px">Gratis para empezar. Si te trabás, te ayudamos por WhatsApp.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+      <a href="#" style="background:var(--acc,#FF6B5B);color:#fff;font-weight:800;font-size:18px;padding:18px 36px;border-radius:16px;display:inline-block" style-hover="background:#F4573F;color:#fff">Empezá gratis</a>
+      <a href="https://wa.me/5491100000000" style="background:#fff;color:#17181A;font-weight:800;font-size:18px;padding:18px 30px;border-radius:16px;display:inline-flex;align-items:center;gap:10px" style-hover="background:#F1ECE7;color:#17181A">
+        <svg width="22" height="22" sc-camel-view-box="0 0 24 24" fill="none"><path d="M12 3a9 9 0 00-7.8 13.5L3 21l4.7-1.2A9 9 0 1012 3z" stroke="#128A5C" stroke-width="2" stroke-linejoin="round"></path><path d="M8.8 9.2c.3 2.6 3.3 5.6 5.9 5.9l1.4-1.4-2-1.3-1 .6c-.9-.4-1.7-1.2-2.1-2.1l.6-1-1.3-2-1.5 1.3z" fill="#128A5C"></path></svg>
+        Escribinos por WhatsApp
+      </a>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-top:36px;flex-wrap:wrap;gap:16px">
+    <div style="display:flex;align-items:center;gap:9px">
+      <div style="width:28px;height:28px;border-radius:8px;background:var(--acc,#FF6B5B);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:16px">K</div>
+      <span style="font-weight:800;font-size:16px">kioskeo</span>
+    </div>
+    <div style="font-size:14px;color:#8A8F96">Hecho en Argentina, para kioscos de verdad.</div>
+  </div>
+</div>
+
+<!-- ─── WHATSAPP FLOTANTE ─── -->
+<sc-if value="{{ waVisible }}" hint-placeholder-val="{{ true }}">
+  <a href="https://wa.me/5491100000000" style="position:fixed;right:24px;bottom:24px;width:60px;height:60px;border-radius:100px;background:#128A5C;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(18,138,92,0.35)" style-hover="background:#0E7A50">
+    <svg width="30" height="30" sc-camel-view-box="0 0 24 24" fill="none"><path d="M12 3a9 9 0 00-7.8 13.5L3 21l4.7-1.2A9 9 0 1012 3z" stroke="#fff" stroke-width="2" stroke-linejoin="round"></path><path d="M8.8 9.2c.3 2.6 3.3 5.6 5.9 5.9l1.4-1.4-2-1.3-1 .6c-.9-.4-1.7-1.2-2.1-2.1l.6-1-1.3-2-1.5 1.3z" fill="#fff"></path></svg>
+  </a>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{
+  &quot;accent&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#FF6B5B&quot;, &quot;options&quot;: [&quot;#FF6B5B&quot;, &quot;#FF7A6B&quot;, &quot;#F45D48&quot;], &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Marca&quot;},
+  &quot;whatsappFlotante&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Landing&quot;}
+}">
+class Component extends DCLogic {
+  state = { hov: null, open: null };
+
+  componentDidMount() {
+    this._doc = e => {
+      if (e.target && e.target.closest && e.target.closest('[data-fn-card]')) return;
+      if (this.state.open) this.setState({ open: null });
+    };
+    document.addEventListener('click', this._doc);
+  }
+  componentWillUnmount() { document.removeEventListener('click', this._doc); }
+
+  card(k) {
+    const open = this.state.open === k;
+    const on = open || this.state.hov === k;
+    return {
+      isOpen: open,
+      cardStyle: { position: 'relative', height: '100%', boxSizing: 'border-box', overflow: 'hidden', background: '#fff', border: '1px solid #F1ECE7', borderRadius: '22px', cursor: 'pointer', transition: 'box-shadow .45s ease', zIndex: on ? 6 : 1, boxShadow: on ? '0 22px 44px -20px rgba(244,87,63,0.45)' : 'none' },
+      waveStyle: { position: 'absolute', top: 0, bottom: 0, left: 0, width: '100%', background: '#FFF0ED', transition: 'transform .55s cubic-bezier(.66,0,.34,1)', transform: on ? 'translateX(0)' : 'translateX(calc(-100% - 80px))' },
+      teaserStyle: { display: 'grid', gridTemplateRows: on ? '0fr' : '1fr', transition: 'grid-template-rows .5s cubic-bezier(.66,0,.34,1), opacity .25s ease', opacity: on ? 0 : 1 },
+      expStyle: { position: 'relative', display: 'grid', gridTemplateRows: on ? '1fr' : '0fr', transition: 'grid-template-rows .5s cubic-bezier(.66,0,.34,1), opacity .35s ease', opacity: on ? 1 : 0 },
+      enter: () => this.setState({ hov: k }),
+      leave: () => this.setState(s => (s.hov === k ? { hov: null } : {})),
+      toggle: e => { e.stopPropagation(); this.setState(s => ({ open: s.open === k ? null : k })); },
+      close: e => { e.stopPropagation(); this.setState({ open: null }); },
+    };
+  }
+
+  renderVals() {
+    const accent = this.props.accent ?? '#FF6B5B';
+    if (typeof document !== 'undefined') document.documentElement.style.setProperty('--acc', accent);
+    const o = { waVisible: this.props.whatsappFlotante ?? true };
+    for (let i = 1; i <= 5; i++) o['c' + i] = this.card(i);
+    return o;
+  }
+}
+</script>
+
+
+</body></html>

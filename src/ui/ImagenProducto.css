@@ -1,0 +1,17 @@
+.imagen-producto {
+  border-radius: 9px;
+  object-fit: cover;
+  background: #fff;
+  border: 1px solid var(--borde);
+  flex-shrink: 0;
+}
+
+.imagen-placeholder {
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+  user-select: none;
+}

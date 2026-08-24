@@ -1,0 +1,30 @@
+.teclado {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.teclado-tecla {
+  min-height: 52px;
+  border-radius: 16px;
+  background: var(--fondo-secundario);
+  font-size: 22px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 80ms, transform 80ms;
+}
+
+.teclado-tecla:hover {
+  background: var(--borde-input);
+}
+
+.teclado-tecla:active {
+  transform: scale(0.96);
+  background: var(--salmon-suave);
+}
+
+.teclado-borrar {
+  color: var(--tinta-secundaria);
+}

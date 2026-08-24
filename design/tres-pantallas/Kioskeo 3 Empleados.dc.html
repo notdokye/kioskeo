@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#E9EBEE;font-family:'Archivo',sans-serif;color:#111}a{color:#16A34A;text-decoration:none}a:hover{color:#15803D}</style>
+</helmet>
+<div style="padding:40px 48px;display:flex;flex-direction:column;gap:36px">
+<div style="display:flex;align-items:baseline;gap:20px">
+<div style="font-size:20px;font-weight:800">Kioskeo · Pantalla 3 — Empleados y turnos</div>
+<div style="font-size:14px;color:#6B7280;display:flex;gap:16px"><a href="Kioskeo 1 Productos.dc.html">Pantalla 1 — Productos</a><a href="Kioskeo 2 Caja.dc.html">Pantalla 2 — Caja</a></div>
+</div>
+<div style="display:flex;gap:40px;align-items:flex-start;flex-wrap:wrap">
+
+<div style="flex:none" data-screen-label="Celular — Paso 1">
+<div style="font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#6B7280;font-weight:600;margin-bottom:10px">Celular · Paso 1</div>
+<div style="width:390px;height:844px;background:#F4F5F7;border-radius:28px;box-shadow:0 12px 32px rgba(17,17,17,.10);overflow:hidden;position:relative">
+<div style="padding:32px 20px 100px;display:flex;flex-direction:column;gap:24px;height:100%;box-sizing:border-box">
+<div style="display:flex;justify-content:center;gap:8px">
+<div style="width:24px;height:8px;border-radius:4px;background:#111"></div>
+<div style="width:8px;height:8px;border-radius:4px;background:#D1D5DB"></div>
+<div style="width:8px;height:8px;border-radius:4px;background:#D1D5DB"></div>
+</div>
+<div style="text-align:center"><div style="font-size:24px;font-weight:700;text-wrap:pretty">¿Cuántas personas trabajan en el kiosco?</div><div style="font-size:14px;color:#6B7280;margin-top:8px">Contate a vos también.</div></div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+<sc-for list="{{ numeros }}" as="n" hint-placeholder-count="6">
+<div style="aspect-ratio:1;border-radius:20px;background:{{ n.bg }};color:{{ n.c }};border:1.5px solid {{ n.b }};display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:700;box-sizing:border-box">{{ n.v }}</div>
+</sc-for>
+</div>
+</div>
+<div style="position:absolute;left:20px;right:20px;bottom:24px;height:56px;border-radius:28px;background:#16A34A;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;letter-spacing:0.5px">LISTO</div>
+</div>
+</div>
+
+<div style="flex:none" data-screen-label="Celular — Paso 2">
+<div style="font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#6B7280;font-weight:600;margin-bottom:10px">Celular · Paso 2</div>
+<div style="width:390px;height:844px;background:#F4F5F7;border-radius:28px;box-shadow:0 12px 32px rgba(17,17,17,.10);overflow:hidden;position:relative">
+<div style="padding:32px 20px 100px;display:flex;flex-direction:column;gap:24px;height:100%;box-sizing:border-box">
+<div style="display:flex;justify-content:center;gap:8px">
+<div style="width:8px;height:8px;border-radius:4px;background:#D1D5DB"></div>
+<div style="width:24px;height:8px;border-radius:4px;background:#111"></div>
+<div style="width:8px;height:8px;border-radius:4px;background:#D1D5DB"></div>
+</div>
+<div style="font-size:24px;font-weight:700;text-align:center">¿Cómo se llaman?</div>
+<div style="display:flex;flex-direction:column;gap:12px">
+<sc-for list="{{ nombres }}" as="p" hint-placeholder-count="3">
+<div style="height:56px;background:#fff;border-radius:28px;box-shadow:0 1px 2px rgba(17,17,17,.04);display:flex;align-items:center;padding:0 20px;gap:12px;box-sizing:border-box">
+<span style="flex:1;font-size:18px;font-weight:600">{{ p }}</span>
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+</div>
+</sc-for>
+<a href="#" style="font-size:16px;font-weight:600;text-align:center;padding:12px 0">Agregar otra persona</a>
+</div>
+</div>
+<div style="position:absolute;left:20px;right:20px;bottom:24px;height:56px;border-radius:28px;background:#16A34A;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;letter-spacing:0.5px">LISTO</div>
+</div>
+</div>
+
+<div style="flex:none" data-screen-label="Celular — Paso 3">
+<div style="font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#6B7280;font-weight:600;margin-bottom:10px">Celular · Paso 3</div>
+<div style="width:390px;height:844px;background:#F4F5F7;border-radius:28px;box-shadow:0 12px 32px rgba(17,17,17,.10);overflow:hidden;position:relative">
+<div style="padding:32px 20px 100px;display:flex;flex-direction:column;gap:20px;height:100%;box-sizing:border-box;overflow:hidden">
+<div style="display:flex;justify-content:center;gap:8px;flex:none">
+<div style="width:8px;height:8px;border-radius:4px;background:#D1D5DB"></div>
+<div style="width:8px;height:8px;border-radius:4px;background:#D1D5DB"></div>
+<div style="width:24px;height:8px;border-radius:4px;background:#111"></div>
+</div>
+<div style="font-size:24px;font-weight:700;text-align:center;flex:none">¿Qué turnos hacen?</div>
+<sc-for list="{{ personas }}" as="p" hint-placeholder-count="2">
+<div style="background:#fff;border-radius:20px;box-shadow:0 1px 2px rgba(17,17,17,.04);padding:20px;display:flex;flex-direction:column;gap:14px;flex:none">
+<div style="font-size:20px;font-weight:700">{{ p.n }}</div>
+<div style="display:flex;gap:8px">
+<sc-for list="{{ p.dias }}" as="d" hint-placeholder-count="7">
+<div style="width:36px;height:36px;border-radius:50%;background:{{ d.bg }};color:{{ d.c }};border:1.5px solid {{ d.b }};display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-sizing:border-box;flex:none">{{ d.l }}</div>
+</sc-for>
+</div>
+<div style="display:flex;gap:8px;flex-wrap:wrap">
+<div style="height:44px;padding:0 16px;border-radius:22px;background:{{ p.m.bg }};color:{{ p.m.c }};border:1.5px solid {{ p.m.b }};display:flex;align-items:center;font-size:14px;font-weight:600;box-sizing:border-box">Mañana 08 a 14</div>
+<div style="height:44px;padding:0 16px;border-radius:22px;background:{{ p.t.bg }};color:{{ p.t.c }};border:1.5px solid {{ p.t.b }};display:flex;align-items:center;font-size:14px;font-weight:600;box-sizing:border-box">Tarde 14 a 21</div>
+<a href="#" style="font-size:14px;font-weight:600;align-self:center;padding:0 8px">Otro horario</a>
+</div>
+<sc-if value="{{ p.otro }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;gap:8px;align-items:center">
+<div style="height:44px;width:96px;border-radius:12px;background:#F4F5F7;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:600">09:00</div>
+<span style="font-size:14px;color:#6B7280">a</span>
+<div style="height:44px;width:96px;border-radius:12px;background:#F4F5F7;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:600">17:00</div>
+</div>
+</sc-if>
+<a href="#" style="font-size:14px;font-weight:600;color:#6B7280">Agregar otro turno</a>
+</div>
+</sc-for>
+</div>
+<div style="position:absolute;left:20px;right:20px;bottom:24px;height:56px;border-radius:28px;background:#16A34A;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;letter-spacing:0.5px">LISTO</div>
+</div>
+</div>
+
+<div style="flex:none" data-screen-label="Celular — Una sola persona">
+<div style="font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#6B7280;font-weight:600;margin-bottom:10px">Celular · Una sola persona (saltea el paso 2)</div>
+<div style="width:390px;height:844px;background:#F4F5F7;border-radius:28px;box-shadow:0 12px 32px rgba(17,17,17,.10);overflow:hidden;position:relative">
+<div style="padding:32px 20px 100px;display:flex;flex-direction:column;gap:20px;height:100%;box-sizing:border-box">
+<div style="display:flex;justify-content:center;gap:8px;flex:none">
+<div style="width:8px;height:8px;border-radius:4px;background:#D1D5DB"></div>
+<div style="width:24px;height:8px;border-radius:4px;background:#111"></div>
+</div>
+<div style="text-align:center;flex:none"><div style="font-size:24px;font-weight:700">¿Qué turnos hacés?</div><div style="font-size:14px;color:#6B7280;margin-top:8px">Trabajás solo, así que este es tu horario.</div></div>
+<div style="background:#fff;border-radius:20px;box-shadow:0 1px 2px rgba(17,17,17,.04);padding:20px;display:flex;flex-direction:column;gap:14px;flex:none">
+<div style="font-size:20px;font-weight:700">Vos</div>
+<div style="display:flex;gap:8px">
+<sc-for list="{{ diasVos }}" as="d" hint-placeholder-count="7">
+<div style="width:36px;height:36px;border-radius:50%;background:{{ d.bg }};color:{{ d.c }};border:1.5px solid {{ d.b }};display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-sizing:border-box;flex:none">{{ d.l }}</div>
+</sc-for>
+</div>
+<div style="display:flex;gap:8px;flex-wrap:wrap">
+<div style="height:44px;padding:0 16px;border-radius:22px;background:#111;color:#fff;border:1.5px solid #111;display:flex;align-items:center;font-size:14px;font-weight:600;box-sizing:border-box">Mañana 08 a 14</div>
+<div style="height:44px;padding:0 16px;border-radius:22px;background:#111;color:#fff;border:1.5px solid #111;display:flex;align-items:center;font-size:14px;font-weight:600;box-sizing:border-box">Tarde 14 a 21</div>
+<a href="#" style="font-size:14px;font-weight:600;align-self:center;padding:0 8px">Otro horario</a>
+</div>
+<a href="#" style="font-size:14px;font-weight:600;color:#6B7280">Agregar otro turno</a>
+</div>
+</div>
+<div style="position:absolute;left:20px;right:20px;bottom:24px;height:56px;border-radius:28px;background:#16A34A;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;letter-spacing:0.5px">LISTO</div>
+</div>
+</div>
+
+<div data-screen-label="PC — Paso 1 (modal)">
+<div style="font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#6B7280;font-weight:600;margin-bottom:10px">PC · Paso 1 (modal)</div>
+<div style="width:1440px;height:900px;background:#F4F5F7;border-radius:20px;box-shadow:0 12px 32px rgba(17,17,17,.10);overflow:hidden;display:flex;position:relative">
+<div style="width:240px;background:#fff;flex:none;display:flex;flex-direction:column;padding:20px 12px;box-sizing:border-box;border-right:1px solid #ECEDEF">
+<div style="font-size:22px;font-weight:800;padding:8px 16px 24px;letter-spacing:-0.5px">Kioskeo</div>
+<sc-for list="{{ nav }}" as="it" hint-placeholder-count="6">
+<div style="height:48px;display:flex;align-items:center;gap:12px;padding:0 16px;border-radius:12px;background:{{ it.bg }};color:{{ it.c }};font-size:15px;font-weight:600;margin-bottom:2px;flex:none;box-sizing:border-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="{{ it.d }}"></path></svg>{{ it.t }}</div>
+</sc-for>
+</div>
+<div style="flex:1"></div>
+<div style="position:absolute;inset:0;background:rgba(17,17,17,.45);display:flex;align-items:center;justify-content:center">
+<div style="width:640px;background:#fff;border-radius:24px;padding:32px;display:flex;flex-direction:column;gap:24px;box-sizing:border-box;box-shadow:0 24px 64px rgba(17,17,17,.25)">
+<div style="display:flex;justify-content:center;gap:8px">
+<div style="width:24px;height:8px;border-radius:4px;background:#111"></div>
+<div style="width:8px;height:8px;border-radius:4px;background:#D1D5DB"></div>
+<div style="width:8px;height:8px;border-radius:4px;background:#D1D5DB"></div>
+</div>
+<div style="text-align:center"><div style="font-size:24px;font-weight:700">¿Cuántas personas trabajan en el kiosco?</div><div style="font-size:14px;color:#6B7280;margin-top:8px">Contate a vos también.</div></div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+<sc-for list="{{ numeros }}" as="n" hint-placeholder-count="6">
+<div style="height:96px;border-radius:20px;background:{{ n.bg }};color:{{ n.c }};border:1.5px solid {{ n.b }};display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:700;box-sizing:border-box">{{ n.v }}</div>
+</sc-for>
+</div>
+<div style="height:56px;border-radius:28px;background:#16A34A;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;letter-spacing:0.5px">LISTO</div>
+</div>
+</div>
+</div>
+</div>
+
+<div data-screen-label="PC — Paso 3 (modal)">
+<div style="font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#6B7280;font-weight:600;margin-bottom:10px">PC · Paso 3 (modal, tarjetas en 2 columnas)</div>
+<div style="width:1440px;height:900px;background:#F4F5F7;border-radius:20px;box-shadow:0 12px 32px rgba(17,17,17,.10);overflow:hidden;display:flex;position:relative">
+<div style="width:240px;background:#fff;flex:none;display:flex;flex-direction:column;padding:20px 12px;box-sizing:border-box;border-right:1px solid #ECEDEF">
+<div style="font-size:22px;font-weight:800;padding:8px 16px 24px;letter-spacing:-0.5px">Kioskeo</div>
+<sc-for list="{{ nav }}" as="it" hint-placeholder-count="6">
+<div style="height:48px;display:flex;align-items:center;gap:12px;padding:0 16px;border-radius:12px;background:{{ it.bg }};color:{{ it.c }};font-size:15px;font-weight:600;margin-bottom:2px;flex:none;box-sizing:border-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="{{ it.d }}"></path></svg>{{ it.t }}</div>
+</sc-for>
+</div>
+<div style="flex:1"></div>
+<div style="position:absolute;inset:0;background:rgba(17,17,17,.45);display:flex;align-items:center;justify-content:center">
+<div style="width:880px;background:#fff;border-radius:24px;padding:32px;display:flex;flex-direction:column;gap:24px;box-sizing:border-box;box-shadow:0 24px 64px rgba(17,17,17,.25)">
+<div style="display:flex;justify-content:center;gap:8px">
+<div style="width:8px;height:8px;border-radius:4px;background:#D1D5DB"></div>
+<div style="width:8px;height:8px;border-radius:4px;background:#D1D5DB"></div>
+<div style="width:24px;height:8px;border-radius:4px;background:#111"></div>
+</div>
+<div style="font-size:24px;font-weight:700;text-align:center">¿Qué turnos hacen?</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+<sc-for list="{{ personas }}" as="p" hint-placeholder-count="2">
+<div style="background:#F4F5F7;border-radius:20px;padding:20px;display:flex;flex-direction:column;gap:14px">
+<div style="font-size:20px;font-weight:700">{{ p.n }}</div>
+<div style="display:flex;gap:8px">
+<sc-for list="{{ p.dias }}" as="d" hint-placeholder-count="7">
+<div style="width:36px;height:36px;border-radius:50%;background:{{ d.bgPc }};color:{{ d.c }};border:1.5px solid {{ d.bPc }};display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;box-sizing:border-box;flex:none">{{ d.l }}</div>
+</sc-for>
+</div>
+<div style="display:flex;gap:8px;flex-wrap:wrap">
+<div style="height:44px;padding:0 16px;border-radius:22px;background:{{ p.m.bgPc }};color:{{ p.m.c }};border:1.5px solid {{ p.m.bPc }};display:flex;align-items:center;font-size:14px;font-weight:600;box-sizing:border-box">Mañana 08 a 14</div>
+<div style="height:44px;padding:0 16px;border-radius:22px;background:{{ p.t.bgPc }};color:{{ p.t.c }};border:1.5px solid {{ p.t.bPc }};display:flex;align-items:center;font-size:14px;font-weight:600;box-sizing:border-box">Tarde 14 a 21</div>
+<a href="#" style="font-size:14px;font-weight:600;align-self:center;padding:0 8px">Otro horario</a>
+</div>
+<a href="#" style="font-size:14px;font-weight:600;color:#6B7280">Agregar otro turno</a>
+</div>
+</sc-for>
+</div>
+<div style="height:56px;border-radius:28px;background:#16A34A;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;letter-spacing:0.5px">LISTO</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;personasSeleccionadas&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:3,&quot;min&quot;:1,&quot;max&quot;:6,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Paso 1&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const seleccion = this.props.personasSeleccionadas ?? 3;
+    const numeros = [1, 2, 3, 4, 5, 6].map(v => ({
+      v,
+      bg: v === seleccion ? '#111' : '#fff',
+      c: v === seleccion ? '#fff' : '#111',
+      b: v === seleccion ? '#111' : '#E5E7EB'
+    }));
+    const nombres = ['Belén', 'Marcos', 'Vos'];
+    const mkDias = act => ['L', 'M', 'M', 'J', 'V', 'S', 'D'].map((l, i) => ({
+      l,
+      bg: act.includes(i) ? '#111' : '#fff',
+      bgPc: act.includes(i) ? '#111' : '#fff',
+      c: act.includes(i) ? '#fff' : '#111',
+      b: act.includes(i) ? '#111' : '#E5E7EB',
+      bPc: act.includes(i) ? '#111' : '#E5E7EB'
+    }));
+    const pill = on => ({ bg: on ? '#111' : '#fff', bgPc: on ? '#111' : '#fff', c: on ? '#fff' : '#111', b: on ? '#111' : '#E5E7EB', bPc: on ? '#111' : '#E5E7EB' });
+    const personas = [
+      { n: 'Belén', dias: mkDias([0, 1, 2, 3, 4]), m: pill(true), t: pill(false), otro: false },
+      { n: 'Marcos', dias: mkDias([3, 4, 5]), m: pill(false), t: pill(false), otro: true }
+    ];
+    const diasVos = mkDias([0, 1, 2, 3, 4, 5]);
+    const nav = [
+      ['Vender', 'M3 3h8l10 10-8 8L3 11zM7.5 7.5h.01'],
+      ['Productos', 'M3 8l9-5 9 5v8l-9 5-9-5zM3 8l9 5 9-5M12 13v8'],
+      ['Caja', 'M2 7h20v10H2zM12 9.5a2.5 2.5 0 1 0 .01 0'],
+      ['Fiados', 'M5 3h14v18H5zM9 3v18M12.5 8h3M12.5 12h3'],
+      ['Movimientos', 'M7 4v13M4 14l3 3 3-3M17 20V7M14 10l3-3 3 3'],
+      ['Panel', 'M5 20v-6M11 20V8M17 20V10M3 20h18']
+    ].map(([t, d]) => ({ t, d, bg: t === 'Panel' ? '#111' : 'transparent', c: t === 'Panel' ? '#fff' : '#4B5563' }));
+    return { numeros, nombres, personas, diasVos, nav };
+  }
+}
+</script>
+</body>
+</html>

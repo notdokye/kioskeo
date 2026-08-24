@@ -1,0 +1,17 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "kioskeo.vercel.app" }],
+      "destination": "https://kioskeo.com/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.kioskeo.com" }],
+      "destination": "https://kioskeo.com/$1",
+      "permanent": true
+    }
+  ]
+}

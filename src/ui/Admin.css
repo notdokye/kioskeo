@@ -1,0 +1,147 @@
+.admin-mensaje {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--verde);
+}
+
+.admin-lista {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-fila {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--separador);
+}
+
+.admin-fila:last-child {
+  border-bottom: none;
+}
+
+.admin-datos {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  font-size: 13px;
+  color: var(--tinta-suave);
+}
+
+.admin-datos strong {
+  font-size: 15px;
+  color: var(--tinta);
+}
+
+.admin-por-vencer .admin-datos strong {
+  color: #9a6b00;
+}
+
+.admin-vencido .admin-datos strong {
+  color: var(--salmon-presionado);
+}
+
+.admin-acciones {
+  display: flex;
+  gap: 6px;
+  flex: none;
+}
+
+.admin-acciones button {
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: var(--tinta);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.admin-acciones button:disabled {
+  background: var(--borde-input);
+}
+
+.admin-error {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--separador);
+}
+
+.admin-error summary {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 13px;
+  color: var(--tinta-suave);
+}
+
+.admin-error summary strong {
+  font-size: 14px;
+  color: var(--tinta);
+}
+
+.admin-error pre {
+  font-size: 11px;
+  white-space: pre-wrap;
+  word-break: break-all;
+  background: var(--fondo-secundario);
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 6px;
+}
+
+.admin-acciones .admin-secundario {
+  background: var(--superficie);
+  color: var(--tinta);
+  border: 1.5px solid var(--borde-input);
+}
+
+.admin-anulada .admin-datos strong {
+  text-decoration: line-through;
+  color: var(--tinta-suave);
+}
+
+.admin-resumen {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 900px) {
+  .admin-resumen {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.admin-actividad {
+  color: var(--tinta-secundaria);
+}
+
+.admin-actividad b {
+  color: var(--tinta);
+  font-weight: 700;
+}
+
+.admin-acciones .admin-peligro {
+  background: var(--salmon-suave);
+  color: var(--salmon-presionado);
+}
+
+.admin-acciones {
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.admin-etiqueta-demo {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: var(--fondo-secundario);
+  color: var(--tinta-suave);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  vertical-align: middle;
+}

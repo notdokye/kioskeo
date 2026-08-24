@@ -1,0 +1,463 @@
+/* Caja = turnos. Diseño "Kioskeo 2 Caja": tarjetas blancas de radio 20,
+   números de 32 a 48 px, esperado en negro, cerrar turno fijo abajo. */
+
+.caja-tarjeta {
+  background: var(--superficie);
+  border-radius: 20px;
+  box-shadow: 0 1px 2px rgba(17, 17, 17, 0.04);
+}
+
+.caja-seccion {
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.caja-enlace {
+  align-self: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--tinta-suave);
+  padding: 8px 12px;
+}
+
+.caja-enlace:hover {
+  color: var(--salmon-presionado);
+}
+
+/* --- abrir turno --- */
+.caja-abrir {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.caja-quien {
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.caja-pregunta {
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.caja-empleado {
+  height: 64px;
+  border-radius: 20px;
+  border: 1.5px solid var(--borde-input);
+  background: var(--superficie);
+  font-size: 18px;
+  font-weight: 700;
+  transition: background 100ms, color 100ms, border-color 100ms;
+}
+
+.caja-empleado:hover {
+  border-color: var(--tinta);
+}
+
+.caja-empleado-activo,
+.caja-empleado-activo:hover {
+  background: var(--tinta);
+  border-color: var(--tinta);
+  color: #fff;
+}
+
+.caja-apertura {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.caja-etiqueta-centro {
+  font-size: 13px;
+  color: var(--tinta-suave);
+  text-align: center;
+}
+
+.caja-monto-gigante {
+  font-size: 48px;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.caja-boton-grande {
+  height: 56px;
+  padding: 0;
+  border-radius: 28px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+@media (min-width: 900px) {
+  .caja-abrir {
+    width: 560px;
+    max-width: 100%;
+    margin: 24px auto 0;
+    padding: 32px;
+    background: var(--superficie);
+    border-radius: 20px;
+    box-shadow: 0 1px 2px rgba(17, 17, 17, 0.04);
+    gap: 12px;
+  }
+
+  .caja-abrir .caja-tarjeta {
+    background: none;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .caja-abrir .caja-apertura {
+    margin-top: 12px;
+  }
+}
+
+/* --- turno abierto --- */
+.caja-banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  border-radius: 20px;
+  background: var(--superficie);
+  box-shadow: 0 1px 2px rgba(17, 17, 17, 0.04);
+  text-align: left;
+}
+
+.caja-banner-textos {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.caja-banner-textos strong {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.caja-banner-textos span {
+  font-size: 13px;
+  color: var(--tinta-suave);
+}
+
+.caja-punto {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex: none;
+  display: inline-block;
+}
+
+.caja-punto-verde {
+  background: #16a34a;
+}
+
+.caja-punto-amarillo {
+  background: #f59e0b;
+}
+
+.caja-punto-rojo {
+  background: #dc2626;
+}
+
+.caja-cajas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.caja-cajita {
+  background: var(--superficie);
+  border-radius: 20px;
+  box-shadow: 0 1px 2px rgba(17, 17, 17, 0.04);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.caja-cajita span {
+  font-size: 13px;
+  color: var(--tinta-suave);
+}
+
+.caja-cajita strong {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-top: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.caja-cajita small {
+  font-size: 12px;
+  color: var(--tinta-suave);
+  margin-top: 4px;
+}
+
+.caja-cajita-esperado {
+  grid-column: 1 / -1;
+  background: var(--tinta);
+  padding: 18px 20px;
+}
+
+.caja-cajita-esperado span {
+  color: #9ca3af;
+}
+
+.caja-cajita-esperado strong {
+  color: #fff;
+  font-size: 40px;
+  font-weight: 800;
+}
+
+.caja-cuerpo {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.caja-acciones {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.caja-secundario {
+  height: 56px;
+  border-radius: 28px;
+  background: var(--superficie);
+  border: 1.5px solid var(--borde-input);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.caja-secundario:hover {
+  border-color: var(--tinta);
+}
+
+.caja-boton-negro {
+  width: 100%;
+  height: 56px;
+  border-radius: 28px;
+  background: var(--tinta);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  box-shadow: 0 8px 20px rgba(17, 17, 17, 0.25);
+}
+
+.caja-boton-negro:hover {
+  background: #000;
+}
+
+.caja-cerrar-pc,
+.caja-enlace-pc {
+  display: none;
+}
+
+.caja-cerrar-fijo {
+  position: fixed;
+  left: 20px;
+  right: 20px;
+  bottom: calc(72px + env(safe-area-inset-bottom));
+  z-index: 5;
+}
+
+.caja-abierta {
+  padding-bottom: 110px;
+}
+
+@media (min-width: 900px) {
+  .caja-cajas {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1.4fr;
+  }
+
+  .caja-cajita-esperado {
+    grid-column: auto;
+  }
+
+  .caja-cuerpo {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    align-items: start;
+  }
+
+  .caja-acciones {
+    grid-template-columns: 1fr;
+  }
+
+  .caja-cerrar-pc {
+    display: block;
+  }
+
+  .caja-cerrar-pc .caja-boton-negro {
+    box-shadow: none;
+  }
+
+  .caja-enlace-pc {
+    display: flex;
+    justify-content: center;
+  }
+
+  .caja-cerrar-fijo {
+    display: none;
+  }
+
+  .caja-abierta {
+    padding-bottom: 40px;
+  }
+}
+
+/* --- turnos anteriores --- */
+.caja-historial-lista {
+  padding: 4px 16px;
+}
+
+.caja-turno {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "nombre dif"
+    "sub dif";
+  column-gap: 12px;
+  row-gap: 2px;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--separador);
+}
+
+.caja-turno:last-child {
+  border-bottom: none;
+}
+
+.caja-turno-nombre {
+  grid-area: nombre;
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.caja-turno-nombre .caja-punto {
+  width: 8px;
+  height: 8px;
+}
+
+.caja-turno-sub {
+  grid-area: sub;
+  font-size: 13px;
+  color: var(--tinta-suave);
+}
+
+.caja-turno-dia,
+.caja-turno-dato {
+  display: none;
+  font-size: 14px;
+  color: var(--tinta-suave);
+}
+
+.caja-turno-dato strong {
+  color: var(--tinta);
+  font-weight: 600;
+}
+
+.caja-turno-dif {
+  grid-area: dif;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.caja-dif-bien {
+  color: #16a34a;
+}
+
+.caja-dif-falta {
+  color: #dc2626;
+}
+
+.caja-dif-sobra {
+  color: #9a6b00;
+}
+
+.caja-dif-pendiente {
+  color: var(--tinta-suave);
+}
+
+@media (min-width: 900px) {
+  .caja-historial-lista {
+    padding: 4px 20px;
+  }
+
+  .caja-turno {
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+  }
+
+  .caja-turno-nombre {
+    width: 110px;
+    flex: none;
+  }
+
+  .caja-turno-dia {
+    display: block;
+    width: 90px;
+    flex: none;
+  }
+
+  .caja-turno-dato {
+    display: block;
+    flex: 1;
+  }
+
+  .caja-turno-sub {
+    display: none;
+  }
+}
+
+/* --- hojas de retiro / ingreso / cierre --- */
+.caja-hoja {
+  gap: 14px;
+}
+
+.caja-hoja .caja-monto-gigante {
+  margin-top: 4px;
+}
+
+.caja-cajas-2 {
+  grid-template-columns: 1fr 1fr;
+}
+
+.caja-cajas-2 .caja-cajita {
+  background: var(--fondo-secundario);
+  box-shadow: none;
+}
+
+.caja-cajas-2 .caja-cajita strong {
+  font-size: 26px;
+}
+
+.caja-resultado {
+  font-size: 28px;
+  font-weight: 800;
+  text-align: center;
+  padding: 6px 0;
+}

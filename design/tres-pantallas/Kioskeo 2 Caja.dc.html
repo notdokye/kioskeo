@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#E9EBEE;font-family:'Archivo',sans-serif;color:#111}a{color:#16A34A;text-decoration:none}a:hover{color:#15803D}</style>
+</helmet>
+<div style="padding:40px 48px;display:flex;flex-direction:column;gap:36px">
+<div style="display:flex;align-items:baseline;gap:20px">
+<div style="font-size:20px;font-weight:800">Kioskeo · Pantalla 2 — Caja / Turno</div>
+<div style="font-size:14px;color:#6B7280;display:flex;gap:16px"><a href="Kioskeo 1 Productos.dc.html">Pantalla 1 — Productos</a><a href="Kioskeo 3 Empleados.dc.html">Pantalla 3 — Empleados</a></div>
+</div>
+<div style="display:flex;gap:40px;align-items:flex-start;flex-wrap:wrap">
+
+<div style="flex:none" data-screen-label="Celular — Turno cerrado">
+<div style="font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#6B7280;font-weight:600;margin-bottom:10px">Celular · Turno cerrado</div>
+<div style="width:390px;height:844px;background:#F4F5F7;border-radius:28px;box-shadow:0 12px 32px rgba(17,17,17,.10);overflow:hidden">
+<div style="padding:28px 20px 24px;display:flex;flex-direction:column;gap:16px;height:100%;box-sizing:border-box">
+<div style="background:#fff;border-radius:20px;box-shadow:0 1px 2px rgba(17,17,17,.04);padding:24px 20px;display:flex;flex-direction:column;gap:12px;flex:none">
+<div style="font-size:24px;font-weight:700;text-align:center;margin-bottom:8px">¿Quién abre?</div>
+<sc-for list="{{ empleados }}" as="e" hint-placeholder-count="3">
+<div style="height:64px;border-radius:20px;background:{{ e.bg }};color:{{ e.c }};border:1.5px solid {{ e.b }};display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;box-sizing:border-box">{{ e.n }}</div>
+</sc-for>
+</div>
+<div style="background:#fff;border-radius:20px;box-shadow:0 1px 2px rgba(17,17,17,.04);padding:20px;display:flex;flex-direction:column;gap:14px;flex:1;box-sizing:border-box">
+<div style="font-size:13px;color:#6B7280;text-align:center">Monto de apertura</div>
+<div style="font-size:48px;font-weight:800;text-align:center">$ 20.000</div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;flex:1">
+<sc-for list="{{ teclas }}" as="k" hint-placeholder-count="12">
+<div style="border-radius:16px;background:#F4F5F7;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:600;min-height:52px">{{ k }}</div>
+</sc-for>
+</div>
+</div>
+<div style="height:56px;flex:none;border-radius:28px;background:#16A34A;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;letter-spacing:0.5px">ABRIR TURNO</div>
+</div>
+</div>
+</div>
+
+<div style="flex:none" data-screen-label="Celular — Turno abierto">
+<div style="font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#6B7280;font-weight:600;margin-bottom:10px">Celular · Turno abierto</div>
+<div style="width:390px;height:844px;background:#F4F5F7;border-radius:28px;box-shadow:0 12px 32px rgba(17,17,17,.10);overflow:hidden;position:relative">
+<div style="padding:28px 20px 100px;display:flex;flex-direction:column;gap:16px;height:100%;box-sizing:border-box;overflow:hidden">
+<div style="background:#fff;border-radius:20px;box-shadow:0 1px 2px rgba(17,17,17,.04);padding:16px 20px;display:flex;align-items:center;gap:12px;flex:none">
+<div style="width:10px;height:10px;border-radius:50%;background:{{ dotColor }};flex:none"></div>
+<div style="flex:1"><div style="font-size:16px;font-weight:700">Belén abrió a las 8:05</div><div style="font-size:13px;color:#6B7280;margin-top:2px">{{ demoraTexto }}</div></div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;flex:none">
+<div style="background:#fff;border-radius:20px;box-shadow:0 1px 2px rgba(17,17,17,.04);padding:16px"><div style="font-size:13px;color:#6B7280">Apertura</div><div style="font-size:32px;font-weight:700;margin-top:6px">$ 20.000</div></div>
+<div style="background:#fff;border-radius:20px;box-shadow:0 1px 2px rgba(17,17,17,.04);padding:16px"><div style="font-size:13px;color:#6B7280">Efectivo</div><div style="font-size:32px;font-weight:700;margin-top:6px">$ 148.300</div></div>
+<div style="background:#fff;border-radius:20px;box-shadow:0 1px 2px rgba(17,17,17,.04);padding:16px"><div style="font-size:13px;color:#6B7280">Transferencias</div><div style="font-size:32px;font-weight:700;margin-top:6px">$ 96.500</div></div>
+<div style="background:#fff;border-radius:20px;box-shadow:0 1px 2px rgba(17,17,17,.04);padding:16px"><div style="font-size:13px;color:#6B7280">Retiros</div><div style="font-size:32px;font-weight:700;margin-top:6px">$ 30.000</div></div>
+<div style="grid-column:1/-1;background:#111;border-radius:20px;padding:18px 20px"><div style="font-size:13px;color:#9CA3AF">Esperado en caja</div><div style="font-size:40px;font-weight:800;color:#fff;margin-top:6px">$ 234.800</div></div>
+</div>
+<div style="display:flex;gap:12px;flex:none">
+<div style="flex:1;height:56px;border-radius:28px;background:#fff;border:1.5px solid #E5E7EB;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;box-sizing:border-box">Retiro</div>
+<div style="flex:1;height:56px;border-radius:28px;background:#fff;border:1.5px solid #E5E7EB;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;box-sizing:border-box">Ingreso</div>
+</div>
+<div style="flex:none;margin-top:8px">
+<div style="font-size:13px;letter-spacing:1px;text-transform:uppercase;color:#6B7280;font-weight:600;margin-bottom:8px">Turnos anteriores</div>
+<div style="background:#fff;border-radius:20px;box-shadow:0 1px 2px rgba(17,17,17,.04);padding:4px 16px">
+<sc-for list="{{ turnos }}" as="t" hint-placeholder-count="4">
+<div style="display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid #F0F1F3">
+<div style="flex:1;min-width:0"><div style="font-size:15px;font-weight:600">{{ t.n }}</div><div style="font-size:13px;color:#6B7280;margin-top:2px">{{ t.sub }}</div></div>
+<div style="font-size:14px;font-weight:700;color:{{ t.dc }};flex:none">{{ t.diff }}</div>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+<div style="position:absolute;left:20px;right:20px;bottom:24px;height:56px;border-radius:28px;background:#111;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;letter-spacing:0.5px;box-shadow:0 8px 20px rgba(17,17,17,.25)">CERRAR TURNO</div>
+</div>
+</div>
+</div>
+
+<div data-screen-label="PC — Turno abierto">
+<div style="font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#6B7280;font-weight:600;margin-bottom:10px">PC · Turno abierto</div>
+<div style="width:1440px;height:900px;background:#F4F5F7;border-radius:20px;box-shadow:0 12px 32px rgba(17,17,17,.10);overflow:hidden;display:flex">
+<div style="width:240px;background:#fff;flex:none;display:flex;flex-direction:column;padding:20px 12px;box-sizing:border-box;border-right:1px solid #ECEDEF">
+<div style="font-size:22px;font-weight:800;padding:8px 16px 24px;letter-spacing:-0.5px">Kioskeo</div>
+<sc-for list="{{ nav }}" as="it" hint-placeholder-count="6">
+<div style="height:48px;display:flex;align-items:center;gap:12px;padding:0 16px;border-radius:12px;background:{{ it.bg }};color:{{ it.c }};font-size:15px;font-weight:600;margin-bottom:2px;flex:none;box-sizing:border-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="{{ it.d }}"></path></svg>{{ it.t }}</div>
+</sc-for>
+</div>
+<div style="flex:1;overflow:hidden;padding:32px;box-sizing:border-box">
+<div style="max-width:1080px;margin:0 auto;display:flex;flex-direction:column;gap:20px;height:100%">
+<div style="background:#fff;border-radius:20px;box-shadow:0 1px 2px rgba(17,17,17,.04);padding:16px 20px;display:flex;align-items:center;gap:12px;flex:none">
+<div style="width:10px;height:10px;border-radius:50%;background:{{ dotColor }};flex:none"></div>
+<div style="font-size:16px;font-weight:700">Belén abrió a las 8:05</div>
+<div style="font-size:13px;color:#6B7280">{{ demoraTexto }}</div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1.4fr;gap:12px;align-items:stretch;flex:none">
+<div style="background:#fff;border-radius:20px;box-shadow:0 1px 2px rgba(17,17,17,.04);padding:18px"><div style="font-size:13px;color:#6B7280">Apertura</div><div style="font-size:32px;font-weight:700;margin-top:8px">$ 20.000</div></div>
+<div style="background:#fff;border-radius:20px;box-shadow:0 1px 2px rgba(17,17,17,.04);padding:18px"><div style="font-size:13px;color:#6B7280">Efectivo</div><div style="font-size:32px;font-weight:700;margin-top:8px">$ 148.300</div></div>
+<div style="background:#fff;border-radius:20px;box-shadow:0 1px 2px rgba(17,17,17,.04);padding:18px"><div style="font-size:13px;color:#6B7280">Transferencias</div><div style="font-size:32px;font-weight:700;margin-top:8px">$ 96.500</div></div>
+<div style="background:#fff;border-radius:20px;box-shadow:0 1px 2px rgba(17,17,17,.04);padding:18px"><div style="font-size:13px;color:#6B7280">Retiros</div><div style="font-size:32px;font-weight:700;margin-top:8px">$ 30.000</div></div>
+<div style="background:#111;border-radius:20px;padding:18px"><div style="font-size:13px;color:#9CA3AF">Esperado en caja</div><div style="font-size:40px;font-weight:800;color:#fff;margin-top:10px">$ 234.800</div></div>
+</div>
+<div style="display:flex;gap:20px;flex:1;overflow:hidden">
+<div style="width:320px;flex:none;display:flex;flex-direction:column;gap:12px">
+<div style="height:56px;border-radius:28px;background:#fff;border:1.5px solid #E5E7EB;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;box-sizing:border-box">Retiro</div>
+<div style="height:56px;border-radius:28px;background:#fff;border:1.5px solid #E5E7EB;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;box-sizing:border-box">Ingreso</div>
+<div style="height:56px;border-radius:28px;background:#111;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;letter-spacing:0.5px">CERRAR TURNO</div>
+</div>
+<div style="flex:1;overflow:hidden;display:flex;flex-direction:column">
+<div style="font-size:13px;letter-spacing:1px;text-transform:uppercase;color:#6B7280;font-weight:600;margin-bottom:8px">Turnos anteriores</div>
+<div style="background:#fff;border-radius:20px;box-shadow:0 1px 2px rgba(17,17,17,.04);padding:4px 20px">
+<sc-for list="{{ turnos }}" as="t" hint-placeholder-count="5">
+<div style="display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid #F0F1F3">
+<div style="width:110px;font-size:15px;font-weight:600;flex:none">{{ t.n }}</div>
+<div style="width:90px;font-size:14px;color:#6B7280;flex:none">{{ t.dia }}</div>
+<div style="flex:1;font-size:14px;color:#6B7280">Esperado <span style="color:#111;font-weight:600">{{ t.esp }}</span></div>
+<div style="flex:1;font-size:14px;color:#6B7280">Contado <span style="color:#111;font-weight:600">{{ t.con }}</span></div>
+<div style="font-size:14px;font-weight:700;color:{{ t.dc }};flex:none">{{ t.diff }}</div>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div data-screen-label="PC — Turno cerrado">
+<div style="font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#6B7280;font-weight:600;margin-bottom:10px">PC · Turno cerrado</div>
+<div style="width:1440px;height:900px;background:#F4F5F7;border-radius:20px;box-shadow:0 12px 32px rgba(17,17,17,.10);overflow:hidden;display:flex">
+<div style="width:240px;background:#fff;flex:none;display:flex;flex-direction:column;padding:20px 12px;box-sizing:border-box;border-right:1px solid #ECEDEF">
+<div style="font-size:22px;font-weight:800;padding:8px 16px 24px;letter-spacing:-0.5px">Kioskeo</div>
+<sc-for list="{{ nav }}" as="it" hint-placeholder-count="6">
+<div style="height:48px;display:flex;align-items:center;gap:12px;padding:0 16px;border-radius:12px;background:{{ it.bg }};color:{{ it.c }};font-size:15px;font-weight:600;margin-bottom:2px;flex:none;box-sizing:border-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="{{ it.d }}"></path></svg>{{ it.t }}</div>
+</sc-for>
+</div>
+<div style="flex:1;display:flex;align-items:center;justify-content:center;padding:32px;box-sizing:border-box">
+<div style="width:560px;background:#fff;border-radius:20px;box-shadow:0 1px 2px rgba(17,17,17,.04);padding:32px;display:flex;flex-direction:column;gap:12px;box-sizing:border-box">
+<div style="font-size:24px;font-weight:700;text-align:center;margin-bottom:8px">¿Quién abre?</div>
+<sc-for list="{{ empleados }}" as="e" hint-placeholder-count="3">
+<div style="height:64px;border-radius:20px;background:{{ e.bg }};color:{{ e.c }};border:1.5px solid {{ e.b }};display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;box-sizing:border-box">{{ e.n }}</div>
+</sc-for>
+<div style="font-size:13px;color:#6B7280;text-align:center;margin-top:12px">Monto de apertura</div>
+<div style="font-size:48px;font-weight:800;text-align:center">$ 20.000</div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
+<sc-for list="{{ teclas }}" as="k" hint-placeholder-count="12">
+<div style="border-radius:16px;background:#F4F5F7;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:600;height:52px">{{ k }}</div>
+</sc-for>
+</div>
+<div style="height:56px;border-radius:28px;background:#16A34A;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;letter-spacing:0.5px;margin-top:8px">ABRIR TURNO</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;demora&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Al horario&quot;,&quot;5 min&quot;,&quot;25 min&quot;],&quot;default&quot;:&quot;5 min&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Turno abierto&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const demora = this.props.demora ?? '5 min';
+    const dotColor = demora === 'Al horario' ? '#16A34A' : (demora === '5 min' ? '#F59E0B' : '#DC2626');
+    const demoraTexto = demora === 'Al horario' ? 'Abrió al horario' : demora + ' de demora';
+    const empleados = ['Belén', 'Marcos', 'Vos'].map((n, i) => ({
+      n,
+      bg: i === 0 ? '#111' : '#fff',
+      c: i === 0 ? '#fff' : '#111',
+      b: i === 0 ? '#111' : '#E5E7EB'
+    }));
+    const teclas = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '00', '0', '⌫'];
+    const turnos = [
+      ['Belén', 'Mié 20/8', '$ 231.400', '$ 231.400', 'Cerró bien', '#16A34A'],
+      ['Marcos', 'Mar 19/8', '$ 198.200', '$ 197.000', 'Faltaron $ 1.200', '#DC2626'],
+      ['Belén', 'Lun 18/8', '$ 214.900', '$ 214.900', 'Cerró bien', '#16A34A'],
+      ['Vos', 'Dom 17/8', '$ 176.300', '$ 176.300', 'Cerró bien', '#16A34A'],
+      ['Marcos', 'Sáb 16/8', '$ 243.100', '$ 242.300', 'Faltaron $ 800', '#DC2626']
+    ].map(([n, dia, esp, con, diff, dc]) => ({ n, dia, esp, con, diff, dc, sub: dia + ' · Esperado ' + esp + ' · Contado ' + con }));
+    const nav = [
+      ['Vender', 'M3 3h8l10 10-8 8L3 11zM7.5 7.5h.01'],
+      ['Productos', 'M3 8l9-5 9 5v8l-9 5-9-5zM3 8l9 5 9-5M12 13v8'],
+      ['Caja', 'M2 7h20v10H2zM12 9.5a2.5 2.5 0 1 0 .01 0'],
+      ['Fiados', 'M5 3h14v18H5zM9 3v18M12.5 8h3M12.5 12h3'],
+      ['Movimientos', 'M7 4v13M4 14l3 3 3-3M17 20V7M14 10l3-3 3 3'],
+      ['Panel', 'M5 20v-6M11 20V8M17 20V10M3 20h18']
+    ].map(([t, d]) => ({ t, d, bg: t === 'Caja' ? '#111' : 'transparent', c: t === 'Caja' ? '#fff' : '#4B5563' }));
+    return { empleados, teclas, turnos, nav, dotColor, demoraTexto };
+  }
+}
+</script>
+</body>
+</html>
