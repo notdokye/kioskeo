@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { aumentarPrecio, formatearARS, type Centavos, type Redondeo, type Venta } from "../core";
-import { agregarProducto, db, importarProductos, listarProductos, todasLasVentas } from "../db/db";
+import { agregarProducto, buscarPorEAN, db, importarProductos, listarProductos, todasLasVentas } from "../db/db";
 import {
   construirFilas,
   detectarColumnas,
@@ -11,6 +11,7 @@ import {
 } from "../import/excel";
 import { AltaRapida } from "./AltaRapida";
 import type { Producto } from "./catalogo";
+import { Escaner } from "./Escaner";
 import { comprimirImagen } from "./imagen";
 import { ImagenProducto } from "./ImagenProducto";
 import { useEsPC } from "./useEsPC";
@@ -375,6 +376,9 @@ function DetalleProducto({
   const [nombreBorrador, setNombreBorrador] = useState<string | null>(null);
   const [precioBorrador, setPrecioBorrador] = useState<string | null>(null);
   const [stockBorrador, setStockBorrador] = useState<string | null>(null);
+  const [eanBorrador, setEanBorrador] = useState<string | null>(null);
+  const [eanError, setEanError] = useState<string | null>(null);
+  const [escaneando, setEscaneando] = useState(false);
   const [historial, setHistorial] = useState<Venta[] | null>(null);
   const fotoRef = useRef<HTMLInputElement>(null);
 
@@ -409,6 +413,27 @@ function DetalleProducto({
     if (Number.isInteger(n) && n >= 0 && n !== producto.stock) guardar({ stock: n });
   }
 
+  // El código se escribe a mano, con un lector USB (tipea y manda Enter) o
+  // con la cámara. Vacío lo borra. Nunca dos productos con el mismo código:
+  // al escanear se vendería siempre el primero.
+  async function asignarEan(texto: string) {
+    const codigo = texto.replace(/\s+/g, "");
+    setEanBorrador(null);
+    if (codigo === (producto.ean ?? "")) return;
+    if (codigo === "") {
+      setEanError(null);
+      guardar({ ean: undefined });
+      return;
+    }
+    const otro = await buscarPorEAN(codigo);
+    if (otro && otro.id !== producto.id) {
+      setEanError(`El código ${codigo} ya es de «${otro.nombre}»`);
+      return;
+    }
+    setEanError(null);
+    guardar({ ean: codigo });
+  }
+
   async function verHistorial() {
     const todas = await todasLasVentas();
     setHistorial(
@@ -429,143 +454,207 @@ function DetalleProducto({
   }
 
   return (
-    <div className="lamina-fondo" onClick={onCerrar}>
-      <div className="lamina prod-detalle" role="dialog" aria-label={producto.nombre} onClick={(e) => e.stopPropagation()}>
-        <div className="lamina-asa" />
-        <div className="lamina-cabecera">
-          <span className="migaja">Producto</span>
-          <button className="lamina-cerrar" aria-label="Cerrar" onClick={onCerrar}>
-            {IconoX}
-          </button>
-        </div>
+    <>
+      <div className="lamina-fondo" onClick={onCerrar}>
+        <div className="lamina prod-detalle" role="dialog" aria-label={producto.nombre} onClick={(e) => e.stopPropagation()}>
+          <div className="lamina-asa" />
+          <div className="lamina-cabecera">
+            <span className="migaja">Producto</span>
+            <button className="lamina-cerrar" aria-label="Cerrar" onClick={onCerrar}>
+              {IconoX}
+            </button>
+          </div>
 
-        <button className="prod-detalle-foto" title="Sacar o cambiar la foto" onClick={() => fotoRef.current?.click()}>
-          <ImagenProducto nombre={producto.nombre} imagen={producto.imagen} tam={esPC ? 140 : 120} />
-          <span className="prod-detalle-foto-pie">{producto.imagen ? "Cambiar foto" : "Agregar foto"}</span>
-        </button>
-        <input
-          ref={fotoRef}
-          type="file"
-          accept="image/*"
-          capture="environment"
-          hidden
-          onChange={(e) => {
-            fotoElegida(e.target.files?.[0]);
-            e.target.value = "";
-          }}
-        />
-
-        {nombreBorrador === null ? (
-          <button className="prod-detalle-nombre" title="Cambiar el nombre" onClick={() => setNombreBorrador(producto.nombre)}>
-            <span>{producto.nombre}</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-              <path d="M17 3l4 4L8 20l-5 1 1-5z" />
-            </svg>
+          <button className="prod-detalle-foto" title="Sacar o cambiar la foto" onClick={() => fotoRef.current?.click()}>
+            <ImagenProducto nombre={producto.nombre} imagen={producto.imagen} tam={esPC ? 140 : 120} />
+            <span className="prod-detalle-foto-pie">{producto.imagen ? "Cambiar foto" : "Agregar foto"}</span>
           </button>
-        ) : (
           <input
-            className="prod-detalle-nombre-input"
-            autoFocus
-            value={nombreBorrador}
-            onChange={(e) => setNombreBorrador(e.target.value)}
-            onBlur={confirmarNombre}
-            onKeyDown={(e) => {
-              if (e.key === "Enter") confirmarNombre();
-              if (e.key === "Escape") setNombreBorrador(null);
+            ref={fotoRef}
+            type="file"
+            accept="image/*"
+            capture="environment"
+            hidden
+            onChange={(e) => {
+              fotoElegida(e.target.files?.[0]);
+              e.target.value = "";
             }}
-            aria-label="Nombre del producto"
           />
-        )}
 
-        <div className="prod-ajuste">
-          <span className="prod-ajuste-etiqueta">{producto.unidad === "peso" ? "Precio cada 100 g" : "Precio de venta"}</span>
-          <div className="prod-ajuste-fila">
-            <button className="prod-ajuste-boton" onClick={() => ajustarPrecio(-PASO_PRECIO)} aria-label="Bajar $100">
-              -100
+          {nombreBorrador === null ? (
+            <button className="prod-detalle-nombre" title="Cambiar el nombre" onClick={() => setNombreBorrador(producto.nombre)}>
+              <span>{producto.nombre}</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                <path d="M17 3l4 4L8 20l-5 1 1-5z" />
+              </svg>
             </button>
-            {precioBorrador === null ? (
-              <button className="prod-ajuste-valor prod-ajuste-precio" title="Escribir el precio" onClick={() => setPrecioBorrador(String(producto.precio / 100))}>
-                {formatearARS(producto.precio)}
+          ) : (
+            <input
+              className="prod-detalle-nombre-input"
+              autoFocus
+              value={nombreBorrador}
+              onChange={(e) => setNombreBorrador(e.target.value)}
+              onBlur={confirmarNombre}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") confirmarNombre();
+                if (e.key === "Escape") setNombreBorrador(null);
+              }}
+              aria-label="Nombre del producto"
+            />
+          )}
+
+          <div className="prod-ajuste">
+            <span className="prod-ajuste-etiqueta">{producto.unidad === "peso" ? "Precio cada 100 g" : "Precio de venta"}</span>
+            <div className="prod-ajuste-fila">
+              <button className="prod-ajuste-boton" onClick={() => ajustarPrecio(-PASO_PRECIO)} aria-label="Bajar $100">
+                -100
               </button>
-            ) : (
-              <input
-                className="prod-ajuste-valor prod-ajuste-precio prod-ajuste-input"
-                autoFocus
-                inputMode="decimal"
-                value={precioBorrador}
-                onChange={(e) => setPrecioBorrador(e.target.value)}
-                onBlur={confirmarPrecio}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") confirmarPrecio();
-                  if (e.key === "Escape") setPrecioBorrador(null);
-                }}
-                aria-label="Precio"
-              />
-            )}
-            <button className="prod-ajuste-boton" onClick={() => ajustarPrecio(PASO_PRECIO)} aria-label="Subir $100">
-              +100
-            </button>
-          </div>
-        </div>
-
-        <div className="prod-ajuste">
-          <span className="prod-ajuste-etiqueta">Stock</span>
-          <div className="prod-ajuste-fila">
-            <button className="prod-ajuste-boton prod-ajuste-boton-chico" onClick={() => ajustarStock(-1)} aria-label="Restar uno">
-              -1
-            </button>
-            {stockBorrador === null ? (
-              <button className="prod-ajuste-valor prod-ajuste-stock" title="Escribir el stock" onClick={() => setStockBorrador(String(producto.stock ?? 0))}>
-                {producto.stock ?? "—"}
+              {precioBorrador === null ? (
+                <button className="prod-ajuste-valor prod-ajuste-precio" title="Escribir el precio" onClick={() => setPrecioBorrador(String(producto.precio / 100))}>
+                  {formatearARS(producto.precio)}
+                </button>
+              ) : (
+                <input
+                  className="prod-ajuste-valor prod-ajuste-precio prod-ajuste-input"
+                  autoFocus
+                  inputMode="decimal"
+                  value={precioBorrador}
+                  onChange={(e) => setPrecioBorrador(e.target.value)}
+                  onBlur={confirmarPrecio}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") confirmarPrecio();
+                    if (e.key === "Escape") setPrecioBorrador(null);
+                  }}
+                  aria-label="Precio"
+                />
+              )}
+              <button className="prod-ajuste-boton" onClick={() => ajustarPrecio(PASO_PRECIO)} aria-label="Subir $100">
+                +100
               </button>
-            ) : (
-              <input
-                className="prod-ajuste-valor prod-ajuste-stock prod-ajuste-input"
-                autoFocus
-                inputMode="numeric"
-                value={stockBorrador}
-                onChange={(e) => setStockBorrador(e.target.value)}
-                onBlur={confirmarStock}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") confirmarStock();
-                  if (e.key === "Escape") setStockBorrador(null);
+            </div>
+          </div>
+
+          <div className="prod-ajuste">
+            <span className="prod-ajuste-etiqueta">Stock</span>
+            <div className="prod-ajuste-fila">
+              <button className="prod-ajuste-boton prod-ajuste-boton-chico" onClick={() => ajustarStock(-1)} aria-label="Restar uno">
+                -1
+              </button>
+              {stockBorrador === null ? (
+                <button className="prod-ajuste-valor prod-ajuste-stock" title="Escribir el stock" onClick={() => setStockBorrador(String(producto.stock ?? 0))}>
+                  {producto.stock ?? "—"}
+                </button>
+              ) : (
+                <input
+                  className="prod-ajuste-valor prod-ajuste-stock prod-ajuste-input"
+                  autoFocus
+                  inputMode="numeric"
+                  value={stockBorrador}
+                  onChange={(e) => setStockBorrador(e.target.value)}
+                  onBlur={confirmarStock}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") confirmarStock();
+                    if (e.key === "Escape") setStockBorrador(null);
+                  }}
+                  aria-label="Stock"
+                />
+              )}
+              <button className="prod-ajuste-boton prod-ajuste-boton-chico" onClick={() => ajustarStock(1)} aria-label="Sumar uno">
+                +1
+              </button>
+            </div>
+          </div>
+
+          <div className="prod-ajuste">
+            <span className="prod-ajuste-etiqueta">Código de barras</span>
+            <div className="prod-ajuste-fila">
+              {eanBorrador === null ? (
+                <button
+                  className={`prod-ajuste-valor prod-ajuste-ean ${producto.ean ? "" : "prod-ajuste-ean-vacio"}`}
+                  title="Escribir el código o pasar el lector"
+                  onClick={() => {
+                    setEanError(null);
+                    setEanBorrador(producto.ean ?? "");
+                  }}
+                >
+                  {producto.ean ?? "Agregar código"}
+                </button>
+              ) : (
+                <input
+                  className="prod-ajuste-valor prod-ajuste-ean prod-ajuste-input"
+                  autoFocus
+                  inputMode="numeric"
+                  placeholder="Escribilo o pasá el lector"
+                  value={eanBorrador}
+                  onChange={(e) => setEanBorrador(e.target.value)}
+                  onBlur={() => asignarEan(eanBorrador)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") asignarEan(eanBorrador);
+                    if (e.key === "Escape") setEanBorrador(null);
+                  }}
+                  aria-label="Código de barras"
+                />
+              )}
+              <button
+                className="prod-ajuste-boton prod-ajuste-boton-chico"
+                title="Escanear con la cámara"
+                aria-label="Escanear código con la cámara"
+                onMouseDown={(e) => e.preventDefault()}
+                onClick={() => {
+                  setEanBorrador(null);
+                  setEanError(null);
+                  setEscaneando(true);
                 }}
-                aria-label="Stock"
-              />
-            )}
-            <button className="prod-ajuste-boton prod-ajuste-boton-chico" onClick={() => ajustarStock(1)} aria-label="Sumar uno">
-              +1
-            </button>
+              >
+                <svg width="22" height="22" viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" aria-hidden>
+                  <path d="M3 8V4.5A1.5 1.5 0 0 1 4.5 3H8" />
+                  <path d="M20 3h3.5A1.5 1.5 0 0 1 25 4.5V8" />
+                  <path d="M25 20v3.5a1.5 1.5 0 0 1-1.5 1.5H20" />
+                  <path d="M8 25H4.5A1.5 1.5 0 0 1 3 23.5V20" />
+                  <path d="M8 10v8M12 10v8M16 10v8M20 10v8" />
+                </svg>
+              </button>
+            </div>
+            {eanError && <p className="prod-ajuste-error">{eanError}</p>}
           </div>
+
+          <button className="prod-detalle-historial" onClick={() => (historial ? setHistorial(null) : verHistorial())}>
+            {historial ? "OCULTAR HISTORIAL" : "VER HISTORIAL"}
+          </button>
+
+          {historial && (
+            <div className="prod-historial">
+              {historial.length === 0 ? (
+                <p className="hoja-nota">Todavía no se vendió.</p>
+              ) : (
+                historial.map((v) => {
+                  const linea = v.lineas.find((l) => l.productoId === producto.id)!;
+                  const cantidad = linea.gramos !== undefined ? `${linea.gramos} g` : `×${linea.cantidad}`;
+                  return (
+                    <div key={v.id} className="prod-historial-fila">
+                      <span>
+                        {new Date(v.fecha).toLocaleDateString("es-AR", { day: "numeric", month: "short" })} · {horaCorta(v.fecha)}
+                      </span>
+                      <strong>{cantidad}</strong>
+                      <span>{formatearARS(linea.precioUnitario)}</span>
+                    </div>
+                  );
+                })
+              )}
+            </div>
+          )}
         </div>
-
-        <button className="prod-detalle-historial" onClick={() => (historial ? setHistorial(null) : verHistorial())}>
-          {historial ? "OCULTAR HISTORIAL" : "VER HISTORIAL"}
-        </button>
-
-        {historial && (
-          <div className="prod-historial">
-            {historial.length === 0 ? (
-              <p className="hoja-nota">Todavía no se vendió.</p>
-            ) : (
-              historial.map((v) => {
-                const linea = v.lineas.find((l) => l.productoId === producto.id)!;
-                const cantidad = linea.gramos !== undefined ? `${linea.gramos} g` : `×${linea.cantidad}`;
-                return (
-                  <div key={v.id} className="prod-historial-fila">
-                    <span>
-                      {new Date(v.fecha).toLocaleDateString("es-AR", { day: "numeric", month: "short" })} · {horaCorta(v.fecha)}
-                    </span>
-                    <strong>{cantidad}</strong>
-                    <span>{formatearARS(linea.precioUnitario)}</span>
-                  </div>
-                );
-              })
-            )}
-          </div>
-        )}
       </div>
-    </div>
+      {escaneando && (
+        <Escaner
+          onDetectado={(codigo) => {
+            setEscaneando(false);
+            asignarEan(codigo);
+          }}
+          onCerrar={() => setEscaneando(false)}
+        />
+      )}
+    </>
   );
 }
 

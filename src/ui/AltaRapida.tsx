@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { formatearARS, margenPorcentaje } from "../core";
+import { buscarPorEAN } from "../db/db";
 import { buscarEnOpenFoodFacts } from "../import/openfoodfacts";
 import type { Producto } from "./catalogo";
 import { comprimirImagen, urlAImagenComprimida } from "./imagen";
@@ -22,6 +23,8 @@ export function AltaRapida({ ean, onGuardar, onCancelar }: Props) {
   const [precioTexto, setPrecioTexto] = useState("");
   const [costoTexto, setCostoTexto] = useState("");
   const [stockTexto, setStockTexto] = useState("");
+  const [codigoTexto, setCodigoTexto] = useState("");
+  const [codigoError, setCodigoError] = useState<string | null>(null);
   const [unidad, setUnidad] = useState<"unidad" | "peso">("unidad");
   const [masOpciones, setMasOpciones] = useState(false);
   const [imagen, setImagen] = useState<string | undefined>(undefined);
@@ -78,11 +81,20 @@ export function AltaRapida({ ean, onGuardar, onCancelar }: Props) {
     }
   }
 
-  function guardar() {
+  async function guardar() {
     if (!puedeGuardar || precio === null) return;
+    // Sin código escaneado, se puede escribir (o pasar el lector) a mano.
+    const codigo = ean ?? (codigoTexto.replace(/\s+/g, "") || undefined);
+    if (codigo && !ean) {
+      const otro = await buscarPorEAN(codigo);
+      if (otro) {
+        setCodigoError(`Ese código ya es de «${otro.nombre}»`);
+        return;
+      }
+    }
     onGuardar({
       id: crypto.randomUUID(),
-      ean,
+      ean: codigo,
       nombre: nombre.trim(),
       precio,
       costo: costo !== null && costo > 0 ? costo : undefined,
@@ -168,10 +180,25 @@ export function AltaRapida({ ean, onGuardar, onCancelar }: Props) {
 
         {!masOpciones ? (
           <button className="alta-mas" onClick={() => setMasOpciones(true)}>
-            + Costo y stock (opcional)
+            {ean ? "+ Costo y stock (opcional)" : "+ Código de barras, costo y stock (opcional)"}
           </button>
         ) : (
           <div className="alta-extras">
+            {!ean && (
+              <div className="alta-extra">
+                <input
+                  inputMode="numeric"
+                  placeholder="Código de barras (o pasá el lector)"
+                  value={codigoTexto}
+                  onChange={(e) => {
+                    setCodigoTexto(e.target.value);
+                    setCodigoError(null);
+                  }}
+                  aria-label="Código de barras"
+                />
+              </div>
+            )}
+            {codigoError && <p className="alta-codigo-error">{codigoError}</p>}
             <div className="alta-extra">
               <input
                 inputMode="decimal"

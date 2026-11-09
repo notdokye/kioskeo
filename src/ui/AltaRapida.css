@@ -138,6 +138,12 @@
   color: var(--salmon-presionado);
 }
 
+.alta-codigo-error {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--salmon-presionado);
+}
+
 .alta-acciones {
   display: flex;
   gap: 10px;

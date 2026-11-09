@@ -41,6 +41,10 @@ import "./Vender.css";
 
 const DISPOSITIVO_ID = dispositivoId();
 
+// EAN-8, UPC-A (12), EAN-13 y GTIN-14: solo dígitos. Nadie busca un
+// producto por nombre tipeando 8 números seguidos.
+const PARECE_CODIGO = /^\d{8,14}$/;
+
 // Vista de la pantalla: vendiendo → pago (medios gigantes) → cobrada.
 type Vista =
   | { tipo: "vender" }
@@ -111,6 +115,7 @@ export function Vender({ irA, nombreNegocio = "Kioskeo" }: Props) {
   const [gramosTexto, setGramosTexto] = useState("");
   const [pagaronTexto, setPagaronTexto] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
+  const altaDesdeBuscador = useRef(false);
   const toastTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
@@ -274,11 +279,41 @@ export function Vender({ irA, nombreNegocio = "Kioskeo" }: Props) {
     }
   }
 
+  // Un lector USB/bluetooth "tipea" el código en el buscador y manda Enter.
+  // Código conocido: se agrega. Código nuevo: se abre el alta con el código
+  // ya puesto. Texto común: se agrega el primer resultado, como siempre.
+  function enterEnBuscador() {
+    const q = consulta.trim();
+    if (q === "") return;
+    const porCodigo = catalogo.find((p) => p.ean === q);
+    if (porCodigo) {
+      agregar(porCodigo);
+      return;
+    }
+    if (PARECE_CODIGO.test(q) && mosaicos.length === 0) {
+      setConsulta("");
+      altaDesdeBuscador.current = true;
+      setEanDesconocido(q);
+      return;
+    }
+    if (mosaicos.length > 0) agregar(mosaicos[0]);
+  }
+
+  // Tras un alta abierta desde el buscador, el foco vuelve ahí para que el
+  // lector pueda seguir leyendo sin tocar la pantalla.
+  function cerrarAltaPorCodigo() {
+    setEanDesconocido(null);
+    if (altaDesdeBuscador.current) {
+      altaDesdeBuscador.current = false;
+      requestAnimationFrame(() => inputRef.current?.focus());
+    }
+  }
+
   async function guardarProductoNuevo(producto: Producto) {
     await agregarProducto(producto);
     setCatalogo((c) => [...c, producto]);
     agregar(producto);
-    setEanDesconocido(null);
+    cerrarAltaPorCodigo();
     avisar(`✓ ${producto.nombre}`);
   }
 
@@ -341,11 +376,22 @@ export function Vender({ irA, nombreNegocio = "Kioskeo" }: Props) {
   useEffect(() => {
     function onTecla(e: KeyboardEvent) {
       const enHoja =
-        eligiendoCliente || escaneando || eanDesconocido !== null || pesando !== null;
+        eligiendoCliente || escaneando || altaManual || eanDesconocido !== null || pesando !== null;
       if (enHoja) return;
       if (e.key === "F2") {
         e.preventDefault();
         setEscaneando(true);
+        return;
+      }
+      // Escribir (o pasar el lector) con el foco fuera del buscador lleva el
+      // foco al buscador: la tecla y el resto del código caen ahí.
+      if (vista.tipo === "vender" && e.key.length === 1 && e.key !== " " && !e.ctrlKey && !e.metaKey && !e.altKey) {
+        const activo = document.activeElement;
+        const enCampo =
+          activo instanceof HTMLInputElement ||
+          activo instanceof HTMLTextAreaElement ||
+          (activo instanceof HTMLElement && activo.isContentEditable);
+        if (!enCampo) inputRef.current?.focus();
         return;
       }
       if (vista.tipo === "cobrada") {
@@ -385,7 +431,7 @@ export function Vender({ irA, nombreNegocio = "Kioskeo" }: Props) {
     window.addEventListener("keydown", onTecla);
     return () => window.removeEventListener("keydown", onTecla);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [vista, lineas, consulta, eligiendoCliente, escaneando, eanDesconocido, pesando, total, ajustes.fiados]);
+  }, [vista, lineas, consulta, eligiendoCliente, escaneando, altaManual, eanDesconocido, pesando, total, ajustes.fiados]);
 
   function describirPagos(venta: Venta): string {
     const partes: string[] = [];
@@ -583,8 +629,12 @@ export function Vender({ irA, nombreNegocio = "Kioskeo" }: Props) {
               value={consulta}
               onChange={(e) => setConsulta(e.target.value)}
               onKeyDown={(e) => {
-                if (e.key === "Enter" && consulta.trim() !== "" && mosaicos.length > 0) {
-                  agregar(mosaicos[0]);
+                // Enter con texto agrega y nada más: sin cortar la propagación,
+                // el atajo global lo tomaba como "cobrar" y el Enter del lector
+                // saltaba a la pantalla de pago (y el siguiente cobraba).
+                if (e.key === "Enter" && consulta.trim() !== "") {
+                  e.stopPropagation();
+                  enterEnBuscador();
                 }
               }}
               placeholder="Buscá un producto…"
@@ -822,7 +872,7 @@ export function Vender({ irA, nombreNegocio = "Kioskeo" }: Props) {
         <AltaRapida
           ean={eanDesconocido}
           onGuardar={guardarProductoNuevo}
-          onCancelar={() => setEanDesconocido(null)}
+          onCancelar={cerrarAltaPorCodigo}
         />
       )}
       {altaManual && (
